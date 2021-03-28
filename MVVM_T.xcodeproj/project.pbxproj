@@ -99,15 +99,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9F5C78002610D3A0007D47D3 /* ModelLayer */ = {
+		9F5C78002610D3A0007D47D3 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
-				9F7E3B702610C87100B94191 /* NewAccount.swift */,
-				9F7E3B462610C87100B94191 /* Session.swift */,
-				9F7E3B6C2610C87100B94191 /* UserProfile.swift */,
-				9F7E3B4C2610C87100B94191 /* UserSession.swift */,
+				9F7E3B6A2610C87100B94191 /* Persistence */,
+				9F7E3B4B2610C87100B94191 /* Remote */,
+				9F7E3B642610C87100B94191 /* Repositories */,
+				9F5C78142610E10B007D47D3 /* Model */,
 			);
-			path = ModelLayer;
+			path = DataLayer;
 			sourceTree = "<group>";
 		};
 		9F5C78032610D536007D47D3 /* onboarding */ = {
@@ -136,6 +136,26 @@
 			path = SignupViewModel;
 			sourceTree = "<group>";
 		};
+		9F5C78132610E0AD007D47D3 /* KooberKit */ = {
+			isa = PBXGroup;
+			children = (
+				9F7E3B592610C87100B94191 /* UILayer */,
+				9F5C78002610D3A0007D47D3 /* DataLayer */,
+			);
+			path = KooberKit;
+			sourceTree = "<group>";
+		};
+		9F5C78142610E10B007D47D3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9F7E3B702610C87100B94191 /* NewAccount.swift */,
+				9F7E3B462610C87100B94191 /* Session.swift */,
+				9F7E3B6C2610C87100B94191 /* UserProfile.swift */,
+				9F7E3B4C2610C87100B94191 /* UserSession.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9F7E3B212610C86100B94191 = {
 			isa = PBXGroup;
 			children = (
@@ -155,32 +175,15 @@
 		9F7E3B2C2610C86100B94191 /* MVVM_T */ = {
 			isa = PBXGroup;
 			children = (
+				9F5C77FB2610CB36007D47D3 /* Info.plist */,
 				9F7E3B502610C87100B94191 /* AppDelegate.swift */,
 				9F7E3B452610C87100B94191 /* SceneDelegate.swift */,
-				9F7E3B312610C86100B94191 /* ViewController.swift */,
 				9F7E3B6E2610C87100B94191 /* Assets.xcassets */,
 				9F7E3B572610C87100B94191 /* IOS */,
-				9F7E3B482610C87100B94191 /* KooperUIKit */,
-				9F7E3B6A2610C87100B94191 /* Persistence */,
-				9F7E3B4B2610C87100B94191 /* Remote */,
-				9F7E3B642610C87100B94191 /* Repositories */,
-				9F7E3B522610C87100B94191 /* SignIn */,
-				9F7E3B672610C87100B94191 /* Signup */,
 				9F7E3B722610C87200B94191 /* UIKit */,
-				9F7E3B592610C87100B94191 /* UILayer */,
-				9F5C78002610D3A0007D47D3 /* ModelLayer */,
-				9F7E3B332610C86100B94191 /* Main.storyboard */,
-				9F5C77FB2610CB36007D47D3 /* Info.plist */,
-				9F7E3B382610C86200B94191 /* LaunchScreen.storyboard */,
+				9F5C78132610E0AD007D47D3 /* KooberKit */,
 			);
 			path = MVVM_T;
-			sourceTree = "<group>";
-		};
-		9F7E3B482610C87100B94191 /* KooperUIKit */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = KooperUIKit;
 			sourceTree = "<group>";
 		};
 		9F7E3B4B2610C87100B94191 /* Remote */ = {
@@ -196,6 +199,8 @@
 			children = (
 				9F7E3B742610C87200B94191 /* OnboardingDependecyContainer.swift */,
 				9F7E3B682610C87100B94191 /* OnboardingViewController.swift */,
+				9F7E3B522610C87100B94191 /* SignIn */,
+				9F7E3B672610C87100B94191 /* Signup */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -212,6 +217,9 @@
 		9F7E3B572610C87100B94191 /* IOS */ = {
 			isa = PBXGroup;
 			children = (
+				9F7E3B332610C86100B94191 /* Main.storyboard */,
+				9F7E3B382610C86200B94191 /* LaunchScreen.storyboard */,
+				9F7E3B312610C86100B94191 /* ViewController.swift */,
 				9F7E3B732610C87200B94191 /* MainViewController.swift */,
 				9F7E3B6F2610C87100B94191 /* Welcome */,
 				9F7E3B4E2610C87100B94191 /* Onboarding */,
