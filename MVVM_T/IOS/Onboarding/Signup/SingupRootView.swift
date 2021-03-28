@@ -7,9 +7,11 @@
 
 import UIKit
 import Combine
-class SignupRootView : UIView {
+
+
+class SignupRootView : UIView , Bindable {
     
-    let viewModel : SignupViewModel
+    var viewModel : SignupViewModel
     var subscriptions = Set<AnyCancellable>()
     init(viewModel : SignupViewModel) {
         self.viewModel = viewModel
@@ -140,68 +142,29 @@ class SignupRootView : UIView {
     
     
     func bindTextFieldsToViewModel(){
-        nameTextField
-            .text
-            .publisher
-            .assign(to: \.nameText, on: viewModel)
-            .store(in: &subscriptions)
-        emailTextField
-            .text
-            .publisher
-            .assign(to: \.emailText, on: viewModel)
-            .store(in: &subscriptions)
-        passwordTextField
-            .text
-            .publisher
-            .assign(to: \.passwordText, on: viewModel)
-            .store(in: &subscriptions)
-        nickNameTextField
-            .text
-            .publisher
-            .assign(to: \.nicknameText, on: viewModel)
-            .store(in: &subscriptions)
+        
+        bindTextFieldText(emailTextField, to: \.emailText)
+        bindTextFieldText(passwordTextField, to: \.passwordText)
+        bindTextFieldText(nameTextField, to: \.nameText)
+        bindTextFieldText(nickNameTextField, to: \.nicknameText)
     }
     
+   
     func linkActionsToViewModel(){
         signupButton.addTarget(viewModel, action: #selector(viewModel.onPressSignup), for: .touchUpInside)
     }
     
     func linkViewsStates(){
-        viewModel
-            .$isButtonEnabled
-            .assign(to: \.isEnabled, on: signupButton)
-            .store(in: &subscriptions)
         
-        viewModel
-            .$isNameTextFieldDisabled
-            .assign(to: \.isEnabled, on: nameTextField)
-            .store(in: &subscriptions)
-        
-        
-        viewModel
-            .$isNicknameTextFieldDisabled
-            .assign(to: \.isEnabled, on: nickNameTextField)
-            .store(in: &subscriptions)
-        
-        
-        viewModel
-            .$isEmailTextFieldDisabled
-            .assign(to: \.isEnabled, on: emailTextField)
-            .store(in: &subscriptions)
-        
-        viewModel
-            .$isPasswordTextFieldDisabled
-            .assign(to: \.isEnabled, on: passwordTextField)
-            .store(in: &subscriptions)
-        
-        viewModel
-            .$isIndicatorAnimation
-            .assign(to: \.isHidden, on: loadingIndicator)
-            .store(in: &subscriptions)
-        
-            
+        bindState(to: emailTextField, uiComponents: \.isEnabled, state: \.$isEmailTextFieldDisabled)
+        bindState(to: passwordTextField, uiComponents: \.isEnabled, state: \.$isPasswordTextFieldDisabled)
+        bindState(to: nickNameTextField, uiComponents: \.isEnabled, state: \.$isNicknameTextFieldDisabled)
+        bindState(to: nameTextField, uiComponents: \.isEnabled, state: \.$isNameTextFieldDisabled)
+        bindState(to: signupButton, uiComponents: \.isEnabled, state: \.$isButtonEnabled)
+        bindState(to: loadingIndicator, uiComponents: \.isHidden, state: \.$isIndicatorAnimation)
     }
      
+   
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

@@ -42,7 +42,6 @@ class OnboardingViewController : UINavigationController {
             
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { (com) in
-                print(com)
             }, receiveValue:{ [weak self] onboardingView in
                     
                 self?.present(onboardingView)

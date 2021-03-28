@@ -29,18 +29,19 @@ class SigninViewModel {
     @objc
     func onSignin(){
         changeStateToLoading()
-        
+    
         sessionRepository.signIn(email: emailText, password: passwordText)
             .sink { [weak self]  completion in
+                
                 switch completion {
                 case .failure :
-                    
                     self?.changeStateToNormal()
                     self?.errorPublisher.send("Faild To Sign In ")
                 default : break
                 }
             } receiveValue: { [weak self] userSession in
                 //WillDoSomething later
+                print(userSession)
                 self?.signedInResponder.signedIn()
             }
             .store(in: &subscriptions)

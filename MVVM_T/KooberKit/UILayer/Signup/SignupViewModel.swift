@@ -21,15 +21,17 @@ class SignupViewModel {
     
     var emailText : String = ""
     var passwordText : String = ""
-    var nameText : String = ""
+    var nameText : String = ""{
+        didSet{print("Updated")}
+    }
     var nicknameText : String = ""
     
     @Published var isButtonEnabled = true
-    @Published var isIndicatorAnimation = false
-    @Published var isEmailTextFieldDisabled = false
-    @Published var isPasswordTextFieldDisabled = false
-    @Published var isNameTextFieldDisabled = false
-    @Published var isNicknameTextFieldDisabled = false
+    @Published var isIndicatorAnimation = true
+    @Published var isEmailTextFieldDisabled = true
+    @Published var isPasswordTextFieldDisabled = true
+    @Published var isNameTextFieldDisabled = true
+    @Published var isNicknameTextFieldDisabled = true
     
     
     @objc
@@ -41,7 +43,7 @@ class SignupViewModel {
                     { [weak self] in
                         self?.chnageStateToNormal()
                         isError( $0, message: "FaildTo", sender: self?.errorPublisher)
-                        
+                     
                     }, receiveValue: { userSession  in
                         self.signedInResponder.signedIn()
                     })

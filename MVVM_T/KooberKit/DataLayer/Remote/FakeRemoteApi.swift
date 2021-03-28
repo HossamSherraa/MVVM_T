@@ -10,7 +10,7 @@ import Combine
 struct FakeRemoteApi : UserSessionRemoteApi {
    
     func signup(newAccount: NewAccount) -> AnyPublisher<Session , Never> {
-       Just( Session.init(token: "23123123"))
+        Just( Session.makeSession(token: "234234332"))
         .eraseToAnyPublisher()
     }
     

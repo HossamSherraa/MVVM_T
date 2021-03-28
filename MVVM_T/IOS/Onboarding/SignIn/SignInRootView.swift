@@ -121,13 +121,15 @@ class SignInRootView : UIView {
     
     
     func bindTextFieldsToViewModel(){
-        emailTextField.text
-            .publisher
+        emailTextField.publisher(for: \.text)
+            .compactMap({$0})
+            .receive(on: DispatchQueue.main)
             .assign(to: \.emailText, on: viewModel)
             .store(in: &subscribtions)
         
-        passwordTextField.text
-            .publisher
+        passwordTextField.publisher(for: \.text)
+            .compactMap({$0})
+            .receive(on: DispatchQueue.main)
             .assign(to: \.passwordText, on: viewModel)
             .store(in: &subscribtions)
     }
@@ -135,17 +137,20 @@ class SignInRootView : UIView {
     func linkViewsStatesToViewModel(){
         viewModel
             .$isEmailTextFieldDisabled
+            .receive(on: DispatchQueue.main)
             .assign(to: \.isEnabled, on: emailTextField)
             .store(in: &subscribtions)
         
         viewModel
             .$isPasswordTextFieldDisabled
+            .receive(on: DispatchQueue.main)
             .assign(to: \.isEnabled, on: passwordTextField)
             .store(in: &subscribtions)
         
         
         viewModel
             .$isIndicatorAnimation
+            .receive(on: DispatchQueue.main)
             .assign(to: \.isHidden, on: loadingIndicator)
             .store(in: &subscribtions)
             

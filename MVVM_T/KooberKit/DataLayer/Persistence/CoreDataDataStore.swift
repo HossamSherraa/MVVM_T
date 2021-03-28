@@ -7,6 +7,7 @@
 
 import CoreData
 import Combine
+
 protocol CoreDataCreator {
     func getContext()->NSManagedObjectContext
 }
@@ -14,22 +15,24 @@ enum  GlobalErrors : Error {
     case any
 }
 class CoreDataDataStore : UserSessionDataStore{
-   
-    
-    let context : NSManagedObjectContext
+
     init(coreDataCreator : CoreDataCreator) {
-        self.context = coreDataCreator.getContext()
+        context = coreDataCreator.getContext()
+
     }
     func save(userSession: UserSession) throws {
         context.insert(userSession)
-        try context.save()
+        try! context.save()
     }
     
     func get(email: String, password: String) -> AnyPublisher<UserSession , Error> {
       let allUsers =  try! context.fetch(UserSession.fetchRequest()) as! [UserSession]
         return allUsers.publisher
-            .tryFilter({ userSession -> Bool in
-                guard  userSession.profile.email == email && userSession.profile.password == password else {throw GlobalErrors.any}
+            .filter({ userSession -> Bool in
+                userSession.userProfile?.email == email && userSession.userProfile?.password == password
+            })
+            .tryFirst(where: { session in
+                guard session.userProfile?.email == email else { throw GlobalErrors.any}
                 return true
             })
             .eraseToAnyPublisher()
@@ -45,7 +48,7 @@ class CoreDataDataStore : UserSessionDataStore{
        return allUsers
             .publisher
             .compactMap({$0})
-            .filter({$0?.state == .signin})
+        .filter({$0?.state == UserSession.State.signin.rawValue})
             .first()
             .eraseToAnyPublisher()
            

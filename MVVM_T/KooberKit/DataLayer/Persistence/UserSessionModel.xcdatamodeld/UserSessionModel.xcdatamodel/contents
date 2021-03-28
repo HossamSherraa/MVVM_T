@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D64" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Session" representedClassName="Session" syncable="YES">
+        <attribute name="token" optional="YES" attributeType="String"/>
+        <relationship name="usersession" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserSession" inverseName="session" inverseEntity="UserSession"/>
+    </entity>
+    <entity name="UserProfile" representedClassName="UserProfile" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="nickname" optional="YES" attributeType="String"/>
+        <attribute name="password" optional="YES" attributeType="String"/>
+        <relationship name="usersession" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserSession" inverseName="userProfile" inverseEntity="UserSession"/>
+    </entity>
+    <entity name="UserSession" representedClassName="UserSession" syncable="YES">
+        <attribute name="state" optional="YES" attributeType="String"/>
+        <relationship name="session" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Session" inverseName="usersession" inverseEntity="Session"/>
+        <relationship name="userProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserProfile" inverseName="usersession" inverseEntity="UserProfile"/>
+    </entity>
+    <elements>
+        <element name="UserSession" positionX="-63" positionY="-18" width="128" height="74"/>
+        <element name="UserProfile" positionX="-54" positionY="-9" width="128" height="104"/>
+        <element name="Session" positionX="-36" positionY="9" width="128" height="59"/>
+    </elements>
+</model>

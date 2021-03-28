@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 protocol UserSessionDataStore {
     func save(userSession : UserSession) throws
     func get(email: String, password: String) -> AnyPublisher<UserSession , Error>
@@ -27,10 +28,11 @@ struct KooperUserSessionRepository : UserSessionRepository{
         remoteApi
             .signup(newAccount: newAccount)
             .tryMap{ session in
-                let profile = UserProfile(name: newAccount.fullName, nickname: newAccount.name, email: newAccount.email, password: newAccount.password)
-                let useSession = UserSession(profile: profile, session: session, state: .signin)
-                try datastore.save(userSession: useSession)
-                return useSession
+                print(newAccount)
+                let profile = UserProfile.makeUserProfile(name: newAccount.fullName, nickname: newAccount.name, email: newAccount.email, password: newAccount.password)
+                let userSession = UserSession.makeUserSession(profile: profile, session: session, state: UserSession.State.signin.rawValue)
+                try datastore.save(userSession: userSession)
+                return userSession
             }
             .eraseToAnyPublisher()
         
