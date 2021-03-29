@@ -26,7 +26,7 @@ extension Bindable {
         
     }
     
-    func bindState<T:UIView>(to component : T , uiComponents : ReferenceWritableKeyPath<T , Bool> , state : KeyPath<ViewModel , Published<Bool>.Publisher>){
+    func bindState<T , R>(to component : T , uiComponents : ReferenceWritableKeyPath<T , R> , state : KeyPath<ViewModel , Published<R>.Publisher>){
         self.viewModel[keyPath: state]
             .assign(to: uiComponents, on: component)
             .store(in: &subscriptions)

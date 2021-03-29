@@ -11,5 +11,9 @@ struct NewAccount {
     let fullName : String
     let email : String
     let password : String
+    
+    func isEmpty()->Bool{
+        return name.isEmpty || fullName.isEmpty || email.isEmpty || password.isEmpty
+    }
    
 }

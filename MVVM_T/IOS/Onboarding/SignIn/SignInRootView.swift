@@ -7,9 +7,12 @@
 
 import UIKit
 import Combine
-class SignInRootView : UIView {
-    let viewModel : SigninViewModel
-    var subscribtions = Set<AnyCancellable>()
+class SignInRootView : UIView , Bindable {
+    var subscriptions: Set<AnyCancellable> = .init()
+    
+    typealias ViewModel = SigninViewModel
+
+    var viewModel : SigninViewModel
     init(viewModel : SigninViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
@@ -32,6 +35,7 @@ class SignInRootView : UIView {
         button.turnOffAutoresizingMask()
         button.backgroundColor = Color.buttonBackground
         button.setTitle("SignIn", for: .normal)
+        button.setTitle("", for: .disabled)
         button.heightAnchor.constraint(equalToConstant: 60).isActive = true
         return button
     }()
@@ -121,38 +125,20 @@ class SignInRootView : UIView {
     
     
     func bindTextFieldsToViewModel(){
-        emailTextField.publisher(for: \.text)
-            .compactMap({$0})
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.emailText, on: viewModel)
-            .store(in: &subscribtions)
         
-        passwordTextField.publisher(for: \.text)
-            .compactMap({$0})
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.passwordText, on: viewModel)
-            .store(in: &subscribtions)
+        
+            
+            bindTextFieldText(emailTextField, to: \.emailText)
+            bindTextFieldText(passwordTextField, to: \.passwordText)
+           
+        
     }
     
     func linkViewsStatesToViewModel(){
-        viewModel
-            .$isEmailTextFieldDisabled
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.isEnabled, on: emailTextField)
-            .store(in: &subscribtions)
-        
-        viewModel
-            .$isPasswordTextFieldDisabled
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.isEnabled, on: passwordTextField)
-            .store(in: &subscribtions)
-        
-        
-        viewModel
-            .$isIndicatorAnimation
-            .receive(on: DispatchQueue.main)
-            .assign(to: \.isHidden, on: loadingIndicator)
-            .store(in: &subscribtions)
+        bindState(to: emailTextField, uiComponents: \.isEnabled, state: \.$isEmailTextFieldDisabled)
+        bindState(to: passwordTextField, uiComponents: \.isEnabled, state: \.$isPasswordTextFieldDisabled)
+        bindState(to: signInButton, uiComponents: \.isEnabled, state: \.$isButtonEnabled)
+        bindState(to: loadingIndicator, uiComponents: \.isHidden, state: \.$isIndicatorAnimation)
             
         
     }

@@ -26,16 +26,21 @@ class CoreDataDataStore : UserSessionDataStore{
     }
     
     func get(email: String, password: String) -> AnyPublisher<UserSession , Error> {
-      let allUsers =  try! context.fetch(UserSession.fetchRequest()) as! [UserSession]
-        return allUsers.publisher
-            .filter({ userSession -> Bool in
-                userSession.userProfile?.email == email && userSession.userProfile?.password == password
-            })
-            .tryFirst(where: { session in
-                guard session.userProfile?.email == email else { throw GlobalErrors.any}
-                return true
-            })
+      
+        Just(Void())
+            .tryMap{try context.fetch(UserSession.fetchRequest()) as? [UserSession]}
+            .tryMap{
+                let matchedSession = $0?.filter({$0.userProfile?.email == email && $0.userProfile?.password == password})
+                if let matchedSession = matchedSession , !matchedSession.isEmpty {
+                    return matchedSession.first
+                }else {
+                    throw GlobalErrors.any
+                }
+                
+            }
+            .compactMap({$0})
             .eraseToAnyPublisher()
+            
  
     }
     

@@ -13,6 +13,8 @@ class SignupRootView : UIView , Bindable {
     
     var viewModel : SignupViewModel
     var subscriptions = Set<AnyCancellable>()
+    
+   
     init(viewModel : SignupViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
@@ -35,6 +37,7 @@ class SignupRootView : UIView , Bindable {
         button.turnOffAutoresizingMask()
         button.backgroundColor = Color.buttonBackground
         button.setTitle("Signup", for: .normal)
+        button.setTitle("", for: .disabled)
         button.heightAnchor.constraint(equalToConstant: 60).isActive = true
         return button
     }()
@@ -108,6 +111,7 @@ class SignupRootView : UIView , Bindable {
     
     
     
+   
     
     
     func confingConstraints(){
@@ -164,6 +168,7 @@ class SignupRootView : UIView , Bindable {
         bindState(to: loadingIndicator, uiComponents: \.isHidden, state: \.$isIndicatorAnimation)
     }
      
+    
    
     
     required init?(coder: NSCoder) {

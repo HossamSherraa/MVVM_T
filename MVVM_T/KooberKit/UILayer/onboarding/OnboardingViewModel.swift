@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 class OnboardingViewModel  : SigninNavigator , SignupNavigator , SignedInResponder  {
-    func signedIn() {
+    func signedIn(userSession  : UserSession) {
         
     }
     

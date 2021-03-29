@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9F03EBBA26112E3F0028AAAA /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F03EBB926112E3F0028AAAA /* Bindable.swift */; };
+		9F5AD80A2612245C00184A32 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5AD8092612245C00184A32 /* ErrorPresenter.swift */; };
 		9F7E3B322610C86100B94191 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E3B312610C86100B94191 /* ViewController.swift */; };
 		9F7E3B352610C86100B94191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F7E3B332610C86100B94191 /* Main.storyboard */; };
 		9F7E3B3A2610C86200B94191 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F7E3B382610C86200B94191 /* LaunchScreen.storyboard */; };
@@ -55,6 +56,7 @@
 
 /* Begin PBXFileReference section */
 		9F03EBB926112E3F0028AAAA /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		9F5AD8092612245C00184A32 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		9F5C77FB2610CB36007D47D3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F7E3B2A2610C86100B94191 /* MVVM_T.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_T.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F7E3B312610C86100B94191 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,9 @@
 				9F7E3B562610C87100B94191 /* OnboardingViewModel.swift */,
 				9F7E3B4D2610C87100B94191 /* OnboardingView.swift */,
 				9F7E3B5D2610C87100B94191 /* SignedInResponder.swift */,
+				9F7E3B692610C87100B94191 /* Welcome */,
+				9F5C78072610D5D8007D47D3 /* Signin */,
+				9F5C78092610D63B007D47D3 /* Signup */,
 			);
 			path = onboarding;
 			sourceTree = "<group>";
@@ -249,10 +254,7 @@
 			children = (
 				9F7E3B6D2610C87100B94191 /* MainViewModel.swift */,
 				9F7E3B582610C87100B94191 /* MainView.swift */,
-				9F5C78092610D63B007D47D3 /* Signup */,
-				9F5C78072610D5D8007D47D3 /* Signin */,
 				9F5C78032610D536007D47D3 /* onboarding */,
-				9F7E3B692610C87100B94191 /* Welcome */,
 			);
 			path = UILayer;
 			sourceTree = "<group>";
@@ -320,6 +322,7 @@
 				9F7E3B492610C87100B94191 /* NiblessViewController.swift */,
 				9F7E3B512610C87100B94191 /* TurnOffAutoresizingMask.swift */,
 				9F03EBB926112E3F0028AAAA /* Bindable.swift */,
+				9F5AD8092612245C00184A32 /* ErrorPresenter.swift */,
 				9F7E3B5F2610C87100B94191 /* Style */,
 			);
 			path = UIKit;
@@ -430,6 +433,7 @@
 				9F7E3B802610C87200B94191 /* OnboardingView.swift in Sources */,
 				9F7E3B9B2610C87200B94191 /* OnboardingDependecyContainer.swift in Sources */,
 				9F7E3B7A2610C87200B94191 /* SceneDelegate.swift in Sources */,
+				9F5AD80A2612245C00184A32 /* ErrorPresenter.swift in Sources */,
 				9FFF86332610FAE400C2768B /* Session+CoreDataProperties.swift in Sources */,
 				9F7E3B7E2610C87200B94191 /* SignupNavigator.swift in Sources */,
 				9F7E3B8C2610C87200B94191 /* SigninNavigator.swift in Sources */,

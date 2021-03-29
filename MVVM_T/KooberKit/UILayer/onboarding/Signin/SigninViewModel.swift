@@ -21,14 +21,13 @@ class SigninViewModel {
     var emailText : String = ""
     var passwordText : String = ""
     
-    @Published var isButtonEnabled = false
+    @Published var isButtonEnabled = true
     @Published  var isIndicatorAnimation = true
     @Published var isEmailTextFieldDisabled = true
     @Published var isPasswordTextFieldDisabled = true
     
     @objc
     func onSignin(){
-        changeStateToLoading()
     
         sessionRepository.signIn(email: emailText, password: passwordText)
             .sink { [weak self]  completion in
@@ -40,9 +39,8 @@ class SigninViewModel {
                 default : break
                 }
             } receiveValue: { [weak self] userSession in
-                //WillDoSomething later
-                print(userSession)
-                self?.signedInResponder.signedIn()
+                self?.signedInResponder.signedIn(userSession: userSession)
+                self?.changeStateToLoading()
             }
             .store(in: &subscriptions)
 

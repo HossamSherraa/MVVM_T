@@ -11,6 +11,7 @@ class CoreDataStackCreator : CoreDataCreator {
     let container = NSPersistentContainer(name: "UserSessionModel")
     init() {
         container.loadPersistentStores { (completion, error) in
+//            try! self.container.persistentStoreCoordinator.destroyPersistentStore(at: completion.url!, ofType: NSSQLiteStoreType, options: nil)
         }
     
     }
