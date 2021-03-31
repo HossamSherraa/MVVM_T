@@ -9,7 +9,7 @@ import MapKit
 class MapAnnotaion :  NSObject , MKAnnotation {
     internal init(type: AnnotaionType, location: Location) {
         self.type = type
-        self.coordinate = CLLocationCoordinate2D(latitude: location.x, longitude: location.y)
+        self.coordinate = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         self.image = type.image
     }
 

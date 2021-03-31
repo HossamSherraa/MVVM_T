@@ -10,10 +10,10 @@ import UIKit
 class ViewController: UIViewController {
 
     override func loadView() {
-        let mapView = MapRootView(dropOffLocation: .init(x: 30.033333, y: 30.033333))
+        let mapView = MapRootView(dropOffLocation: .init(latitude: 30.033333, longitude: 30.033333))
         
         Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
-            mapView.addPickupLocation(at: Location(x: 35.033333, y: 35.033333))
+            mapView.addPickupLocation(at: Location(latitude: 35.033333, longitude: 35.033333))
         }
         view = mapView
 

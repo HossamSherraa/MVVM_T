@@ -19,6 +19,13 @@
 		9F0724F72615007E00211F49 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724F62615007E00211F49 /* MapAnnotation.swift */; };
 		9F0724FA261500BF00211F49 /* AnnotataionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724F9261500BF00211F49 /* AnnotataionType.swift */; };
 		9F0724FD261500DB00211F49 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724FC261500DB00211F49 /* AnnotationView.swift */; };
+		9F072502261501CE00211F49 /* PickupLocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F072501261501CE00211F49 /* PickupLocationPickerViewController.swift */; };
+		9F072506261501E700211F49 /* PickupLocationPickerRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F072505261501E700211F49 /* PickupLocationPickerRootView.swift */; };
+		9F0725092615068900211F49 /* AutoResizingFullFrame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0725082615068900211F49 /* AutoResizingFullFrame.swift */; };
+		9F07250C26150AE000211F49 /* PickupLocationPickerViewContentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F07250B26150AE000211F49 /* PickupLocationPickerViewContentController.swift */; };
+		9F1F7572261520300073AE90 /* PickupLocationPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F7571261520300073AE90 /* PickupLocationPickerViewModel.swift */; };
+		9F1F7579261528BC0073AE90 /* NamedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F7578261528BC0073AE90 /* NamedLocation.swift */; };
+		9F1F757C261528E10073AE90 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F757B261528E10073AE90 /* Location.swift */; };
 		9F5AD80A2612245C00184A32 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5AD8092612245C00184A32 /* ErrorPresenter.swift */; };
 		9F7E3B322610C86100B94191 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E3B312610C86100B94191 /* ViewController.swift */; };
 		9F7E3B352610C86100B94191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F7E3B332610C86100B94191 /* Main.storyboard */; };
@@ -81,6 +88,13 @@
 		9F0724F62615007E00211F49 /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
 		9F0724F9261500BF00211F49 /* AnnotataionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotataionType.swift; sourceTree = "<group>"; };
 		9F0724FC261500DB00211F49 /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
+		9F072501261501CE00211F49 /* PickupLocationPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupLocationPickerViewController.swift; sourceTree = "<group>"; };
+		9F072505261501E700211F49 /* PickupLocationPickerRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupLocationPickerRootView.swift; sourceTree = "<group>"; };
+		9F0725082615068900211F49 /* AutoResizingFullFrame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoResizingFullFrame.swift; sourceTree = "<group>"; };
+		9F07250B26150AE000211F49 /* PickupLocationPickerViewContentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupLocationPickerViewContentController.swift; sourceTree = "<group>"; };
+		9F1F7571261520300073AE90 /* PickupLocationPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupLocationPickerViewModel.swift; sourceTree = "<group>"; };
+		9F1F7578261528BC0073AE90 /* NamedLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedLocation.swift; sourceTree = "<group>"; };
+		9F1F757B261528E10073AE90 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		9F5AD8092612245C00184A32 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		9F5C77FB2610CB36007D47D3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F7E3B2A2610C86100B94191 /* MVVM_T.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_T.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,13 +185,13 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
-		9F0724D12614A1C700211F49 /* Location */ = {
+		9F0724D12614A1C700211F49 /* GetLocation */ = {
 			isa = PBXGroup;
 			children = (
 				9F0724D52614A20100211F49 /* LocationGetterViewController.swift */,
 				9F0724D22614A1E900211F49 /* LocationGetterRootView.swift */,
 			);
-			path = Location;
+			path = GetLocation;
 			sourceTree = "<group>";
 		};
 		9F0724DC2614A4B500211F49 /* Location */ = {
@@ -191,6 +205,7 @@
 		9F0724E12614A7BB00211F49 /* Pickup */ = {
 			isa = PBXGroup;
 			children = (
+				9F1F7570261520000073AE90 /* PickupLocationPicker */,
 				9F0724ED2614E78100211F49 /* Map */,
 			);
 			path = Pickup;
@@ -200,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				9F0724E32614BD7900211F49 /* Pickup.swift */,
+				9F0725002615019800211F49 /* PickupLocationPicker */,
 				9F0724E72614BDD400211F49 /* Map */,
 			);
 			path = Pickup;
@@ -230,6 +246,24 @@
 				9F0724F9261500BF00211F49 /* AnnotataionType.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9F0725002615019800211F49 /* PickupLocationPicker */ = {
+			isa = PBXGroup;
+			children = (
+				9F072501261501CE00211F49 /* PickupLocationPickerViewController.swift */,
+				9F07250B26150AE000211F49 /* PickupLocationPickerViewContentController.swift */,
+				9F072505261501E700211F49 /* PickupLocationPickerRootView.swift */,
+			);
+			path = PickupLocationPicker;
+			sourceTree = "<group>";
+		};
+		9F1F7570261520000073AE90 /* PickupLocationPicker */ = {
+			isa = PBXGroup;
+			children = (
+				9F1F7571261520300073AE90 /* PickupLocationPickerViewModel.swift */,
+			);
+			path = PickupLocationPicker;
 			sourceTree = "<group>";
 		};
 		9F5C78002610D3A0007D47D3 /* DataLayer */ = {
@@ -285,6 +319,8 @@
 			isa = PBXGroup;
 			children = (
 				9F7E3B702610C87100B94191 /* NewAccount.swift */,
+				9F1F7578261528BC0073AE90 /* NamedLocation.swift */,
+				9F1F757B261528E10073AE90 /* Location.swift */,
 				9FFF862C2610FAE400C2768B /* Session+CoreDataClass.swift */,
 				9FFF862D2610FAE400C2768B /* Session+CoreDataProperties.swift */,
 				9FFF862E2610FAE400C2768B /* UserProfile+CoreDataClass.swift */,
@@ -442,6 +478,7 @@
 				9F7E3B512610C87100B94191 /* TurnOffAutoresizingMask.swift */,
 				9F03EBB926112E3F0028AAAA /* Bindable.swift */,
 				9F5AD8092612245C00184A32 /* ErrorPresenter.swift */,
+				9F0725082615068900211F49 /* AutoResizingFullFrame.swift */,
 				9F7E3B5F2610C87100B94191 /* Style */,
 			);
 			path = UIKit;
@@ -452,7 +489,7 @@
 			children = (
 				9FF9C0E326135440006A94B1 /* SignedInViewController.swift */,
 				9F0724E62614BD7B00211F49 /* Pickup */,
-				9F0724D12614A1C700211F49 /* Location */,
+				9F0724D12614A1C700211F49 /* GetLocation */,
 				9F0724BD2614908B00211F49 /* Profile */,
 			);
 			path = SignedIn;
@@ -528,6 +565,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F1F7579261528BC0073AE90 /* NamedLocation.swift in Sources */,
 				9F7E3B7D2610C87200B94191 /* NiblessViewController.swift in Sources */,
 				9F7E3B892610C87200B94191 /* WelcomeViewModel.swift in Sources */,
 				9FFF86362610FAE400C2768B /* UserSession+CoreDataClass.swift in Sources */,
@@ -536,8 +574,11 @@
 				9F7E3B782610C87200B94191 /* WelcomeViewController.swift in Sources */,
 				9F03EBBA26112E3F0028AAAA /* Bindable.swift in Sources */,
 				9FF9C0E72613548F006A94B1 /* ProfileContentViewController.swift in Sources */,
+				9F1F7572261520300073AE90 /* PickupLocationPickerViewModel.swift in Sources */,
 				9F7E3B822610C87200B94191 /* AppDelegate.swift in Sources */,
+				9F0725092615068900211F49 /* AutoResizingFullFrame.swift in Sources */,
 				9F0724C8261492F700211F49 /* ProfileViewController.swift in Sources */,
+				9F1F757C261528E10073AE90 /* Location.swift in Sources */,
 				9F0724D32614A1E900211F49 /* LocationGetterRootView.swift in Sources */,
 				9F7E3B932610C87200B94191 /* OnboardingViewController.swift in Sources */,
 				9F7E3B9D2610C87200B94191 /* SingupRootView.swift in Sources */,
@@ -554,6 +595,7 @@
 				9F7E3B8D2610C87200B94191 /* SigninViewModel.swift in Sources */,
 				9F0724FA261500BF00211F49 /* AnnotataionType.swift in Sources */,
 				9F7E3B7C2610C87200B94191 /* Color.swift in Sources */,
+				9F07250C26150AE000211F49 /* PickupLocationPickerViewContentController.swift in Sources */,
 				9F7E3B852610C87200B94191 /* SignupViewController.swift in Sources */,
 				9F7E3B872610C87200B94191 /* OnboardingViewModel.swift in Sources */,
 				9FFF86342610FAE400C2768B /* UserProfile+CoreDataClass.swift in Sources */,
@@ -562,6 +604,7 @@
 				9FFF86262610F71700C2768B /* ManagedObjectContext.swift in Sources */,
 				9F7E3B862610C87200B94191 /* SignInRootView.swift in Sources */,
 				9FFF86152610F13400C2768B /* UserSessionModel.xcdatamodeld in Sources */,
+				9F072502261501CE00211F49 /* PickupLocationPickerViewController.swift in Sources */,
 				9FFF86292610F74300C2768B /* CoreDataStackCreator.swift in Sources */,
 				9F7E3B942610C87200B94191 /* FakeRemoteApi.swift in Sources */,
 				9FFF86352610FAE400C2768B /* UserProfile+CoreDataProperties.swift in Sources */,
@@ -576,6 +619,7 @@
 				9F0724FD261500DB00211F49 /* AnnotationView.swift in Sources */,
 				9F0724EF2614E78B00211F49 /* MapViewModel.swift in Sources */,
 				9F0724C2261490BF00211F49 /* ProfileViewModel.swift in Sources */,
+				9F072506261501E700211F49 /* PickupLocationPickerRootView.swift in Sources */,
 				9FFF86332610FAE400C2768B /* Session+CoreDataProperties.swift in Sources */,
 				9F7E3B7E2610C87200B94191 /* SignupNavigator.swift in Sources */,
 				9F7E3B8C2610C87200B94191 /* SigninNavigator.swift in Sources */,

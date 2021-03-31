@@ -8,12 +8,6 @@
 import MapKit
 import UIKit
 import Combine
-/*
- 1- Present Annotaion for 1 current location in the map FOR DropoffLocation TYPE
- 2- prsent annotaion after choosing Location For Type Pickup
- 
- */
-
 
 class MapRootView : MKMapView {
     internal init(dropOffLocation: Location) {
@@ -47,7 +41,7 @@ class MapRootView : MKMapView {
     }
     
     private func zoomInTo( location : Location){
-        setRegion(.init(center: CLLocationCoordinate2D.init(latitude: location.x, longitude: location.y), span: defaultMapSpan), animated: true)
+        setRegion(.init(center: CLLocationCoordinate2D.init(latitude: location.latitude, longitude: location.longitude), span: defaultMapSpan), animated: true)
     }
     
     
@@ -59,7 +53,6 @@ extension MapRootView : MKMapViewDelegate {
         
         if let annotaion = annotation as? MapAnnotaion{
             let image = annotaion.type.image
-            print(annotaion.id)
             return AnnotationView(annotation: annotaion, reuseIdentifier: annotaion.id , image :image)
         }
         return nil

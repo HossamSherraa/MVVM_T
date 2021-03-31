@@ -7,10 +7,6 @@
 
 import Foundation
 import Combine
-struct Location {
-    let x : Double
-    let y : Double
-}
 
 protocol Locator{
     func getUserLocation()->AnyPublisher<Location , Never>
