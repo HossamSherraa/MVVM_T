@@ -8,7 +8,15 @@
 import Foundation
 import Combine
 
-class OnboardingViewModel  : SigninNavigator , SignupNavigator , SignedInResponder  {
+class OnboardingViewModel  : SigninNavigator , SignupNavigator , SignedInResponder , DismissProfileResponder , SignoutResponder  {
+    func dismissProfile() {
+            
+    }
+    
+    func signedout() {
+        
+    }
+    
     func signedIn(userSession  : UserSession) {
         
     }

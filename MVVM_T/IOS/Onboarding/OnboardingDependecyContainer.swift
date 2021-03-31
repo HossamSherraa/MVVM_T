@@ -6,7 +6,13 @@
 //
 
 class OnboardingDependencyContrainer : OnboardingFactory , SigninViewModelFactory, SignUpViewModelFactory , WelcomeViewModelFactory {
+//    func makeProfileViewModel() -> ProfileViewModel {
+//        ProfileViewModel(userSessionRepository: userSession, userSession: .makeUserSession(profile: .makeUserProfile(name: "Hossam", nickname: "SOSMS", email: "Hossam", password: "Pass"), session: .makeSession(token: "123123123"), state: "signined"), userProfile: .makeUserProfile(name: "Hossam", nickname: "sms", email: "emal", password: "pas"), signoutResponder: onBoardingViewModel, dismissProfileResponder: onBoardingViewModel)
+//    }
+//
    
+    
+    
     
     
     let onBoardingViewModel : OnboardingViewModel

@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		9F03EBBA26112E3F0028AAAA /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F03EBB926112E3F0028AAAA /* Bindable.swift */; };
+		9F0724C2261490BF00211F49 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724C1261490BF00211F49 /* ProfileViewModel.swift */; };
+		9F0724C8261492F700211F49 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724C7261492F700211F49 /* ProfileViewController.swift */; };
+		9F0724D32614A1E900211F49 /* LocationGetterRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724D22614A1E900211F49 /* LocationGetterRootView.swift */; };
+		9F0724D62614A20100211F49 /* LocationGetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724D52614A20100211F49 /* LocationGetterViewController.swift */; };
+		9F0724DE2614A4C300211F49 /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724DD2614A4C300211F49 /* LocationViewModel.swift */; };
+		9F0724E42614BD7900211F49 /* Pickup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724E32614BD7900211F49 /* Pickup.swift */; };
+		9F0724E92614BDE800211F49 /* MapRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724E82614BDE800211F49 /* MapRootView.swift */; };
+		9F0724EF2614E78B00211F49 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724EE2614E78B00211F49 /* MapViewModel.swift */; };
+		9F0724F72615007E00211F49 /* MapAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724F62615007E00211F49 /* MapAnnotation.swift */; };
+		9F0724FA261500BF00211F49 /* AnnotataionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724F9261500BF00211F49 /* AnnotataionType.swift */; };
+		9F0724FD261500DB00211F49 /* AnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724FC261500DB00211F49 /* AnnotationView.swift */; };
 		9F5AD80A2612245C00184A32 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5AD8092612245C00184A32 /* ErrorPresenter.swift */; };
 		9F7E3B322610C86100B94191 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E3B312610C86100B94191 /* ViewController.swift */; };
 		9F7E3B352610C86100B94191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F7E3B332610C86100B94191 /* Main.storyboard */; };
@@ -43,6 +54,9 @@
 		9F7E3B9A2610C87200B94191 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E3B732610C87200B94191 /* MainViewController.swift */; };
 		9F7E3B9B2610C87200B94191 /* OnboardingDependecyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E3B742610C87200B94191 /* OnboardingDependecyContainer.swift */; };
 		9F7E3B9D2610C87200B94191 /* SingupRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E3B772610C87200B94191 /* SingupRootView.swift */; };
+		9FF9C0E426135440006A94B1 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF9C0E326135440006A94B1 /* SignedInViewController.swift */; };
+		9FF9C0E72613548F006A94B1 /* ProfileContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF9C0E62613548F006A94B1 /* ProfileContentViewController.swift */; };
+		9FF9C0EA261354A1006A94B1 /* ProfileRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF9C0E9261354A1006A94B1 /* ProfileRootView.swift */; };
 		9FFF86152610F13400C2768B /* UserSessionModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9FFF86132610F13400C2768B /* UserSessionModel.xcdatamodeld */; };
 		9FFF86262610F71700C2768B /* ManagedObjectContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFF86252610F71700C2768B /* ManagedObjectContext.swift */; };
 		9FFF86292610F74300C2768B /* CoreDataStackCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FFF86282610F74300C2768B /* CoreDataStackCreator.swift */; };
@@ -56,6 +70,17 @@
 
 /* Begin PBXFileReference section */
 		9F03EBB926112E3F0028AAAA /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		9F0724C1261490BF00211F49 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
+		9F0724C7261492F700211F49 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		9F0724D22614A1E900211F49 /* LocationGetterRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGetterRootView.swift; sourceTree = "<group>"; };
+		9F0724D52614A20100211F49 /* LocationGetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGetterViewController.swift; sourceTree = "<group>"; };
+		9F0724DD2614A4C300211F49 /* LocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationViewModel.swift; sourceTree = "<group>"; };
+		9F0724E32614BD7900211F49 /* Pickup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pickup.swift; sourceTree = "<group>"; };
+		9F0724E82614BDE800211F49 /* MapRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRootView.swift; sourceTree = "<group>"; };
+		9F0724EE2614E78B00211F49 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
+		9F0724F62615007E00211F49 /* MapAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapAnnotation.swift; sourceTree = "<group>"; };
+		9F0724F9261500BF00211F49 /* AnnotataionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotataionType.swift; sourceTree = "<group>"; };
+		9F0724FC261500DB00211F49 /* AnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationView.swift; sourceTree = "<group>"; };
 		9F5AD8092612245C00184A32 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		9F5C77FB2610CB36007D47D3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F7E3B2A2610C86100B94191 /* MVVM_T.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_T.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +118,9 @@
 		9F7E3B732610C87200B94191 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9F7E3B742610C87200B94191 /* OnboardingDependecyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingDependecyContainer.swift; sourceTree = "<group>"; };
 		9F7E3B772610C87200B94191 /* SingupRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingupRootView.swift; sourceTree = "<group>"; };
+		9FF9C0E326135440006A94B1 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
+		9FF9C0E62613548F006A94B1 /* ProfileContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentViewController.swift; sourceTree = "<group>"; };
+		9FF9C0E9261354A1006A94B1 /* ProfileRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRootView.swift; sourceTree = "<group>"; };
 		9FFF86142610F13400C2768B /* UserSessionModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = UserSessionModel.xcdatamodel; sourceTree = "<group>"; };
 		9FFF86252610F71700C2768B /* ManagedObjectContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagedObjectContext.swift; sourceTree = "<group>"; };
 		9FFF86282610F74300C2768B /* CoreDataStackCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStackCreator.swift; sourceTree = "<group>"; };
@@ -115,6 +143,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F0724BD2614908B00211F49 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9F0724C7261492F700211F49 /* ProfileViewController.swift */,
+				9FF9C0E62613548F006A94B1 /* ProfileContentViewController.swift */,
+				9FF9C0E9261354A1006A94B1 /* ProfileRootView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		9F0724BF261490A100211F49 /* SignedIn */ = {
+			isa = PBXGroup;
+			children = (
+				9F0724E12614A7BB00211F49 /* Pickup */,
+				9F0724DC2614A4B500211F49 /* Location */,
+				9F0724C0261490A800211F49 /* Profile */,
+			);
+			path = SignedIn;
+			sourceTree = "<group>";
+		};
+		9F0724C0261490A800211F49 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				9F0724C1261490BF00211F49 /* ProfileViewModel.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		9F0724D12614A1C700211F49 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				9F0724D52614A20100211F49 /* LocationGetterViewController.swift */,
+				9F0724D22614A1E900211F49 /* LocationGetterRootView.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		9F0724DC2614A4B500211F49 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				9F0724DD2614A4C300211F49 /* LocationViewModel.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		9F0724E12614A7BB00211F49 /* Pickup */ = {
+			isa = PBXGroup;
+			children = (
+				9F0724ED2614E78100211F49 /* Map */,
+			);
+			path = Pickup;
+			sourceTree = "<group>";
+		};
+		9F0724E62614BD7B00211F49 /* Pickup */ = {
+			isa = PBXGroup;
+			children = (
+				9F0724E32614BD7900211F49 /* Pickup.swift */,
+				9F0724E72614BDD400211F49 /* Map */,
+			);
+			path = Pickup;
+			sourceTree = "<group>";
+		};
+		9F0724E72614BDD400211F49 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				9F0724E82614BDE800211F49 /* MapRootView.swift */,
+				9F0724F52615004000211F49 /* Model */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		9F0724ED2614E78100211F49 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				9F0724EE2614E78B00211F49 /* MapViewModel.swift */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		9F0724F52615004000211F49 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9F0724F62615007E00211F49 /* MapAnnotation.swift */,
+				9F0724FC261500DB00211F49 /* AnnotationView.swift */,
+				9F0724F9261500BF00211F49 /* AnnotataionType.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		9F5C78002610D3A0007D47D3 /* DataLayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +340,7 @@
 				9F7E3B682610C87100B94191 /* OnboardingViewController.swift */,
 				9F7E3B522610C87100B94191 /* SignIn */,
 				9F7E3B672610C87100B94191 /* Signup */,
+				9F7E3B6F2610C87100B94191 /* Welcome */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -243,8 +361,8 @@
 				9F7E3B382610C86200B94191 /* LaunchScreen.storyboard */,
 				9F7E3B312610C86100B94191 /* ViewController.swift */,
 				9F7E3B732610C87200B94191 /* MainViewController.swift */,
-				9F7E3B6F2610C87100B94191 /* Welcome */,
 				9F7E3B4E2610C87100B94191 /* Onboarding */,
+				9FF9C0E22613542B006A94B1 /* SignedIn */,
 			);
 			path = IOS;
 			sourceTree = "<group>";
@@ -254,6 +372,7 @@
 			children = (
 				9F7E3B6D2610C87100B94191 /* MainViewModel.swift */,
 				9F7E3B582610C87100B94191 /* MainView.swift */,
+				9F0724BF261490A100211F49 /* SignedIn */,
 				9F5C78032610D536007D47D3 /* onboarding */,
 			);
 			path = UILayer;
@@ -326,6 +445,17 @@
 				9F7E3B5F2610C87100B94191 /* Style */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		9FF9C0E22613542B006A94B1 /* SignedIn */ = {
+			isa = PBXGroup;
+			children = (
+				9FF9C0E326135440006A94B1 /* SignedInViewController.swift */,
+				9F0724E62614BD7B00211F49 /* Pickup */,
+				9F0724D12614A1C700211F49 /* Location */,
+				9F0724BD2614908B00211F49 /* Profile */,
+			);
+			path = SignedIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,12 +531,17 @@
 				9F7E3B7D2610C87200B94191 /* NiblessViewController.swift in Sources */,
 				9F7E3B892610C87200B94191 /* WelcomeViewModel.swift in Sources */,
 				9FFF86362610FAE400C2768B /* UserSession+CoreDataClass.swift in Sources */,
+				9F0724DE2614A4C300211F49 /* LocationViewModel.swift in Sources */,
 				9F7E3B322610C86100B94191 /* ViewController.swift in Sources */,
 				9F7E3B782610C87200B94191 /* WelcomeViewController.swift in Sources */,
 				9F03EBBA26112E3F0028AAAA /* Bindable.swift in Sources */,
+				9FF9C0E72613548F006A94B1 /* ProfileContentViewController.swift in Sources */,
 				9F7E3B822610C87200B94191 /* AppDelegate.swift in Sources */,
+				9F0724C8261492F700211F49 /* ProfileViewController.swift in Sources */,
+				9F0724D32614A1E900211F49 /* LocationGetterRootView.swift in Sources */,
 				9F7E3B932610C87200B94191 /* OnboardingViewController.swift in Sources */,
 				9F7E3B9D2610C87200B94191 /* SingupRootView.swift in Sources */,
+				9F0724E92614BDE800211F49 /* MapRootView.swift in Sources */,
 				9FFF86322610FAE400C2768B /* Session+CoreDataClass.swift in Sources */,
 				9F7E3B902610C87200B94191 /* WelcomeRootView.swift in Sources */,
 				9F7E3B992610C87200B94191 /* CoreDataDataStore.swift in Sources */,
@@ -417,11 +552,13 @@
 				9F7E3B832610C87200B94191 /* TurnOffAutoresizingMask.swift in Sources */,
 				9F7E3B812610C87200B94191 /* SignupViewModel.swift in Sources */,
 				9F7E3B8D2610C87200B94191 /* SigninViewModel.swift in Sources */,
+				9F0724FA261500BF00211F49 /* AnnotataionType.swift in Sources */,
 				9F7E3B7C2610C87200B94191 /* Color.swift in Sources */,
 				9F7E3B852610C87200B94191 /* SignupViewController.swift in Sources */,
 				9F7E3B872610C87200B94191 /* OnboardingViewModel.swift in Sources */,
 				9FFF86342610FAE400C2768B /* UserProfile+CoreDataClass.swift in Sources */,
 				9F7E3B882610C87200B94191 /* MainView.swift in Sources */,
+				9F0724F72615007E00211F49 /* MapAnnotation.swift in Sources */,
 				9FFF86262610F71700C2768B /* ManagedObjectContext.swift in Sources */,
 				9F7E3B862610C87200B94191 /* SignInRootView.swift in Sources */,
 				9FFF86152610F13400C2768B /* UserSessionModel.xcdatamodeld in Sources */,
@@ -433,12 +570,19 @@
 				9F7E3B802610C87200B94191 /* OnboardingView.swift in Sources */,
 				9F7E3B9B2610C87200B94191 /* OnboardingDependecyContainer.swift in Sources */,
 				9F7E3B7A2610C87200B94191 /* SceneDelegate.swift in Sources */,
+				9F0724D62614A20100211F49 /* LocationGetterViewController.swift in Sources */,
+				9FF9C0EA261354A1006A94B1 /* ProfileRootView.swift in Sources */,
 				9F5AD80A2612245C00184A32 /* ErrorPresenter.swift in Sources */,
+				9F0724FD261500DB00211F49 /* AnnotationView.swift in Sources */,
+				9F0724EF2614E78B00211F49 /* MapViewModel.swift in Sources */,
+				9F0724C2261490BF00211F49 /* ProfileViewModel.swift in Sources */,
 				9FFF86332610FAE400C2768B /* Session+CoreDataProperties.swift in Sources */,
 				9F7E3B7E2610C87200B94191 /* SignupNavigator.swift in Sources */,
 				9F7E3B8C2610C87200B94191 /* SigninNavigator.swift in Sources */,
 				9F7E3B842610C87200B94191 /* NiblessNavigationViewController.swift in Sources */,
 				9F7E3B962610C87200B94191 /* MainViewModel.swift in Sources */,
+				9F0724E42614BD7900211F49 /* Pickup.swift in Sources */,
+				9FF9C0E426135440006A94B1 /* SignedInViewController.swift in Sources */,
 				9FFF86372610FAE400C2768B /* UserSession+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
