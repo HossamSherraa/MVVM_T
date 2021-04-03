@@ -13,7 +13,7 @@ protocol AutoResizingFullFrame : UIView{
 
 extension AutoResizingFullFrame where Self : UIView {
     func resizeToSuperView(view : UIView){
-        view.frame = frame
+        view.frame = bounds
     }
 }
 

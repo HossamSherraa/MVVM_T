@@ -9,17 +9,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func loadView() {
-        let mapView = MapRootView(dropOffLocation: .init(latitude: 30.033333, longitude: 30.033333))
-        
-        Timer.scheduledTimer(withTimeInterval: 2, repeats: false) { (_) in
-            mapView.addPickupLocation(at: Location(latitude: 35.033333, longitude: 35.033333))
-        }
-        view = mapView
 
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        let rideViews = RequestingRideView()
+        rideViews.turnOffAutoresizingMask()
+        view.addSubview(rideViews)
+        NSLayoutConstraint.activate([
+            rideViews.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            rideViews.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            rideViews.heightAnchor.constraint(equalTo: view.heightAnchor , multiplier: 1 , constant: -80),
+            rideViews.widthAnchor.constraint(equalTo: view.widthAnchor , multiplier: 1)
+        ])
+        
+       
         
     }
 

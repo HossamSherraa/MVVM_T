@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9F03EBBA26112E3F0028AAAA /* Bindable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F03EBB926112E3F0028AAAA /* Bindable.swift */; };
+		9F064D272617DB2700CFBF12 /* RideOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F064D262617DB2700CFBF12 /* RideOptionsViewController.swift */; };
+		9F064D2A2617DB3E00CFBF12 /* RideOptionsRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F064D292617DB3E00CFBF12 /* RideOptionsRootView.swift */; };
+		9F064D2E2617DB7B00CFBF12 /* RideOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F064D2D2617DB7B00CFBF12 /* RideOptionView.swift */; };
 		9F0724C2261490BF00211F49 /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724C1261490BF00211F49 /* ProfileViewModel.swift */; };
 		9F0724C8261492F700211F49 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724C7261492F700211F49 /* ProfileViewController.swift */; };
 		9F0724D32614A1E900211F49 /* LocationGetterRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0724D22614A1E900211F49 /* LocationGetterRootView.swift */; };
@@ -26,7 +29,13 @@
 		9F1F7572261520300073AE90 /* PickupLocationPickerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F7571261520300073AE90 /* PickupLocationPickerViewModel.swift */; };
 		9F1F7579261528BC0073AE90 /* NamedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F7578261528BC0073AE90 /* NamedLocation.swift */; };
 		9F1F757C261528E10073AE90 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F757B261528E10073AE90 /* Location.swift */; };
+		9F1F757F26152F1A0073AE90 /* PickupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F757E26152F1A0073AE90 /* PickupViewController.swift */; };
+		9F1F758226152F580073AE90 /* PickupRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F758126152F580073AE90 /* PickupRootView.swift */; };
 		9F5AD80A2612245C00184A32 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5AD8092612245C00184A32 /* ErrorPresenter.swift */; };
+		9F6EE55926179C82005DE5FD /* RideOptionSegmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6EE55826179C82005DE5FD /* RideOptionSegmentModel.swift */; };
+		9F75B8BF2618709C007F227C /* RideOptionsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F75B8BE2618709C007F227C /* RideOptionsContainerView.swift */; };
+		9F75B8C326187388007F227C /* StackViewRemover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F75B8C226187388007F227C /* StackViewRemover.swift */; };
+		9F79682826179656005FE91D /* RideOptionViewModel(Refactore).swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F79682726179656005FE91D /* RideOptionViewModel(Refactore).swift */; };
 		9F7E3B322610C86100B94191 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E3B312610C86100B94191 /* ViewController.swift */; };
 		9F7E3B352610C86100B94191 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F7E3B332610C86100B94191 /* Main.storyboard */; };
 		9F7E3B3A2610C86200B94191 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F7E3B382610C86200B94191 /* LaunchScreen.storyboard */; };
@@ -61,6 +70,8 @@
 		9F7E3B9A2610C87200B94191 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E3B732610C87200B94191 /* MainViewController.swift */; };
 		9F7E3B9B2610C87200B94191 /* OnboardingDependecyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E3B742610C87200B94191 /* OnboardingDependecyContainer.swift */; };
 		9F7E3B9D2610C87200B94191 /* SingupRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E3B772610C87200B94191 /* SingupRootView.swift */; };
+		9F7F2F502618A94400697EBC /* RideRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7F2F4F2618A94400697EBC /* RideRequestViewController.swift */; };
+		9F7F2F532618A98A00697EBC /* RequestingRideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7F2F522618A98A00697EBC /* RequestingRideView.swift */; };
 		9FF9C0E426135440006A94B1 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF9C0E326135440006A94B1 /* SignedInViewController.swift */; };
 		9FF9C0E72613548F006A94B1 /* ProfileContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF9C0E62613548F006A94B1 /* ProfileContentViewController.swift */; };
 		9FF9C0EA261354A1006A94B1 /* ProfileRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF9C0E9261354A1006A94B1 /* ProfileRootView.swift */; };
@@ -77,6 +88,9 @@
 
 /* Begin PBXFileReference section */
 		9F03EBB926112E3F0028AAAA /* Bindable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bindable.swift; sourceTree = "<group>"; };
+		9F064D262617DB2700CFBF12 /* RideOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideOptionsViewController.swift; sourceTree = "<group>"; };
+		9F064D292617DB3E00CFBF12 /* RideOptionsRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideOptionsRootView.swift; sourceTree = "<group>"; };
+		9F064D2D2617DB7B00CFBF12 /* RideOptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideOptionView.swift; sourceTree = "<group>"; };
 		9F0724C1261490BF00211F49 /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		9F0724C7261492F700211F49 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		9F0724D22614A1E900211F49 /* LocationGetterRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationGetterRootView.swift; sourceTree = "<group>"; };
@@ -95,8 +109,14 @@
 		9F1F7571261520300073AE90 /* PickupLocationPickerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupLocationPickerViewModel.swift; sourceTree = "<group>"; };
 		9F1F7578261528BC0073AE90 /* NamedLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedLocation.swift; sourceTree = "<group>"; };
 		9F1F757B261528E10073AE90 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		9F1F757E26152F1A0073AE90 /* PickupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupViewController.swift; sourceTree = "<group>"; };
+		9F1F758126152F580073AE90 /* PickupRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupRootView.swift; sourceTree = "<group>"; };
 		9F5AD8092612245C00184A32 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		9F5C77FB2610CB36007D47D3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9F6EE55826179C82005DE5FD /* RideOptionSegmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideOptionSegmentModel.swift; sourceTree = "<group>"; };
+		9F75B8BE2618709C007F227C /* RideOptionsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideOptionsContainerView.swift; sourceTree = "<group>"; };
+		9F75B8C226187388007F227C /* StackViewRemover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackViewRemover.swift; sourceTree = "<group>"; };
+		9F79682726179656005FE91D /* RideOptionViewModel(Refactore).swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RideOptionViewModel(Refactore).swift"; sourceTree = "<group>"; };
 		9F7E3B2A2610C86100B94191 /* MVVM_T.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM_T.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F7E3B312610C86100B94191 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9F7E3B342610C86100B94191 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,6 +152,8 @@
 		9F7E3B732610C87200B94191 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9F7E3B742610C87200B94191 /* OnboardingDependecyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingDependecyContainer.swift; sourceTree = "<group>"; };
 		9F7E3B772610C87200B94191 /* SingupRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingupRootView.swift; sourceTree = "<group>"; };
+		9F7F2F4F2618A94400697EBC /* RideRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestViewController.swift; sourceTree = "<group>"; };
+		9F7F2F522618A98A00697EBC /* RequestingRideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestingRideView.swift; sourceTree = "<group>"; };
 		9FF9C0E326135440006A94B1 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
 		9FF9C0E62613548F006A94B1 /* ProfileContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentViewController.swift; sourceTree = "<group>"; };
 		9FF9C0E9261354A1006A94B1 /* ProfileRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRootView.swift; sourceTree = "<group>"; };
@@ -157,6 +179,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9F064D252617DAD300CFBF12 /* RideOptions */ = {
+			isa = PBXGroup;
+			children = (
+				9F064D262617DB2700CFBF12 /* RideOptionsViewController.swift */,
+				9F064D2C2617DB4100CFBF12 /* RideOptionsViews */,
+			);
+			path = RideOptions;
+			sourceTree = "<group>";
+		};
+		9F064D2C2617DB4100CFBF12 /* RideOptionsViews */ = {
+			isa = PBXGroup;
+			children = (
+				9F064D292617DB3E00CFBF12 /* RideOptionsRootView.swift */,
+				9F75B8BE2618709C007F227C /* RideOptionsContainerView.swift */,
+				9F064D2D2617DB7B00CFBF12 /* RideOptionView.swift */,
+			);
+			path = RideOptionsViews;
+			sourceTree = "<group>";
+		};
 		9F0724BD2614908B00211F49 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,6 +246,7 @@
 		9F0724E12614A7BB00211F49 /* Pickup */ = {
 			isa = PBXGroup;
 			children = (
+				9F79682626179606005FE91D /* RideOption */,
 				9F1F7570261520000073AE90 /* PickupLocationPicker */,
 				9F0724ED2614E78100211F49 /* Map */,
 			);
@@ -215,6 +257,8 @@
 			isa = PBXGroup;
 			children = (
 				9F0724E32614BD7900211F49 /* Pickup.swift */,
+				9F7F2F4E2618A92D00697EBC /* RideRequest */,
+				9F064D252617DAD300CFBF12 /* RideOptions */,
 				9F0725002615019800211F49 /* PickupLocationPicker */,
 				9F0724E72614BDD400211F49 /* Map */,
 			);
@@ -329,6 +373,23 @@
 				9FFF86312610FAE400C2768B /* UserSession+CoreDataProperties.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		9F6EE55726179C63005DE5FD /* RideOptionSegmentModel */ = {
+			isa = PBXGroup;
+			children = (
+				9F6EE55826179C82005DE5FD /* RideOptionSegmentModel.swift */,
+			);
+			path = RideOptionSegmentModel;
+			sourceTree = "<group>";
+		};
+		9F79682626179606005FE91D /* RideOption */ = {
+			isa = PBXGroup;
+			children = (
+				9F79682726179656005FE91D /* RideOptionViewModel(Refactore).swift */,
+				9F6EE55726179C63005DE5FD /* RideOptionSegmentModel */,
+			);
+			path = RideOption;
 			sourceTree = "<group>";
 		};
 		9F7E3B212610C86100B94191 = {
@@ -479,15 +540,27 @@
 				9F03EBB926112E3F0028AAAA /* Bindable.swift */,
 				9F5AD8092612245C00184A32 /* ErrorPresenter.swift */,
 				9F0725082615068900211F49 /* AutoResizingFullFrame.swift */,
+				9F75B8C226187388007F227C /* StackViewRemover.swift */,
 				9F7E3B5F2610C87100B94191 /* Style */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		9F7F2F4E2618A92D00697EBC /* RideRequest */ = {
+			isa = PBXGroup;
+			children = (
+				9F7F2F4F2618A94400697EBC /* RideRequestViewController.swift */,
+				9F7F2F522618A98A00697EBC /* RequestingRideView.swift */,
+			);
+			path = RideRequest;
 			sourceTree = "<group>";
 		};
 		9FF9C0E22613542B006A94B1 /* SignedIn */ = {
 			isa = PBXGroup;
 			children = (
 				9FF9C0E326135440006A94B1 /* SignedInViewController.swift */,
+				9F1F757E26152F1A0073AE90 /* PickupViewController.swift */,
+				9F1F758126152F580073AE90 /* PickupRootView.swift */,
 				9F0724E62614BD7B00211F49 /* Pickup */,
 				9F0724D12614A1C700211F49 /* GetLocation */,
 				9F0724BD2614908B00211F49 /* Profile */,
@@ -566,6 +639,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F1F7579261528BC0073AE90 /* NamedLocation.swift in Sources */,
+				9F79682826179656005FE91D /* RideOptionViewModel(Refactore).swift in Sources */,
 				9F7E3B7D2610C87200B94191 /* NiblessViewController.swift in Sources */,
 				9F7E3B892610C87200B94191 /* WelcomeViewModel.swift in Sources */,
 				9FFF86362610FAE400C2768B /* UserSession+CoreDataClass.swift in Sources */,
@@ -573,7 +647,9 @@
 				9F7E3B322610C86100B94191 /* ViewController.swift in Sources */,
 				9F7E3B782610C87200B94191 /* WelcomeViewController.swift in Sources */,
 				9F03EBBA26112E3F0028AAAA /* Bindable.swift in Sources */,
+				9F7F2F502618A94400697EBC /* RideRequestViewController.swift in Sources */,
 				9FF9C0E72613548F006A94B1 /* ProfileContentViewController.swift in Sources */,
+				9F75B8C326187388007F227C /* StackViewRemover.swift in Sources */,
 				9F1F7572261520300073AE90 /* PickupLocationPickerViewModel.swift in Sources */,
 				9F7E3B822610C87200B94191 /* AppDelegate.swift in Sources */,
 				9F0725092615068900211F49 /* AutoResizingFullFrame.swift in Sources */,
@@ -588,6 +664,7 @@
 				9F7E3B992610C87200B94191 /* CoreDataDataStore.swift in Sources */,
 				9F7E3B922610C87200B94191 /* UserSessionRepository.swift in Sources */,
 				9F7E3B982610C87200B94191 /* NewAccount.swift in Sources */,
+				9F1F758226152F580073AE90 /* PickupRootView.swift in Sources */,
 				9F7E3B9A2610C87200B94191 /* MainViewController.swift in Sources */,
 				9F7E3B8B2610C87200B94191 /* SignedInResponder.swift in Sources */,
 				9F7E3B832610C87200B94191 /* TurnOffAutoresizingMask.swift in Sources */,
@@ -597,9 +674,12 @@
 				9F7E3B7C2610C87200B94191 /* Color.swift in Sources */,
 				9F07250C26150AE000211F49 /* PickupLocationPickerViewContentController.swift in Sources */,
 				9F7E3B852610C87200B94191 /* SignupViewController.swift in Sources */,
+				9F1F757F26152F1A0073AE90 /* PickupViewController.swift in Sources */,
 				9F7E3B872610C87200B94191 /* OnboardingViewModel.swift in Sources */,
 				9FFF86342610FAE400C2768B /* UserProfile+CoreDataClass.swift in Sources */,
+				9F7F2F532618A98A00697EBC /* RequestingRideView.swift in Sources */,
 				9F7E3B882610C87200B94191 /* MainView.swift in Sources */,
+				9F064D2A2617DB3E00CFBF12 /* RideOptionsRootView.swift in Sources */,
 				9F0724F72615007E00211F49 /* MapAnnotation.swift in Sources */,
 				9FFF86262610F71700C2768B /* ManagedObjectContext.swift in Sources */,
 				9F7E3B862610C87200B94191 /* SignInRootView.swift in Sources */,
@@ -615,6 +695,7 @@
 				9F7E3B7A2610C87200B94191 /* SceneDelegate.swift in Sources */,
 				9F0724D62614A20100211F49 /* LocationGetterViewController.swift in Sources */,
 				9FF9C0EA261354A1006A94B1 /* ProfileRootView.swift in Sources */,
+				9F064D272617DB2700CFBF12 /* RideOptionsViewController.swift in Sources */,
 				9F5AD80A2612245C00184A32 /* ErrorPresenter.swift in Sources */,
 				9F0724FD261500DB00211F49 /* AnnotationView.swift in Sources */,
 				9F0724EF2614E78B00211F49 /* MapViewModel.swift in Sources */,
@@ -623,11 +704,14 @@
 				9FFF86332610FAE400C2768B /* Session+CoreDataProperties.swift in Sources */,
 				9F7E3B7E2610C87200B94191 /* SignupNavigator.swift in Sources */,
 				9F7E3B8C2610C87200B94191 /* SigninNavigator.swift in Sources */,
+				9F75B8BF2618709C007F227C /* RideOptionsContainerView.swift in Sources */,
+				9F064D2E2617DB7B00CFBF12 /* RideOptionView.swift in Sources */,
 				9F7E3B842610C87200B94191 /* NiblessNavigationViewController.swift in Sources */,
 				9F7E3B962610C87200B94191 /* MainViewModel.swift in Sources */,
 				9F0724E42614BD7900211F49 /* Pickup.swift in Sources */,
 				9FF9C0E426135440006A94B1 /* SignedInViewController.swift in Sources */,
 				9FFF86372610FAE400C2768B /* UserSession+CoreDataProperties.swift in Sources */,
+				9F6EE55926179C82005DE5FD /* RideOptionSegmentModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
