@@ -15,3 +15,10 @@ class NiblessViewController : UIViewController{
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+extension UIViewController {
+    func removeAllChilds(){
+        let childs = self.children
+        childs.forEach(removeChild(viewController:))
+    }
+}

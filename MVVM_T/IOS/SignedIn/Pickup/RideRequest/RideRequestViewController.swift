@@ -5,4 +5,5 @@
 //  Created by Hossam on 03/04/2021.
 //
 
-import Foundation
+import UIKit
+class RideRequestViewController : NiblessViewController {}

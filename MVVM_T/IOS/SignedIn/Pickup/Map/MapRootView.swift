@@ -10,6 +10,9 @@ import UIKit
 import Combine
 
 class MapRootView : MKMapView {
+    
+    
+   
     internal init(dropOffLocation: Location) {
         self.dropOffLocation = dropOffLocation
         super.init(frame: .zero)
@@ -33,7 +36,7 @@ class MapRootView : MKMapView {
         annotations.forEach({ removeAnnotation($0)})
     }
     
-    func addPickupLocation(at location : Location){
+   private func addPickupLocation(at location : Location){
         removeAllAnnotations()
         let annotaion = MapAnnotaion(type: .pickup, location: location)
         addAnnotation(annotaion)
@@ -44,7 +47,7 @@ class MapRootView : MKMapView {
         setRegion(.init(center: CLLocationCoordinate2D.init(latitude: location.latitude, longitude: location.longitude), span: defaultMapSpan), animated: true)
     }
     
-    
+
     
 }
 

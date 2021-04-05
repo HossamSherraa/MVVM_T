@@ -8,22 +8,24 @@
 import Foundation
 import Combine
 import UIKit
-class RideOptionViewModel: SelectOptionResponder {
-    func didSelectRideOption(_ id: RideID) {
-        selectedRideID = id
-    }
+class RideOptionViewModel {
     
-    internal init(selectedRideID: RideID? = nil, rideOptionsRepository: RideOptionsRepository, rideOptionSegmentModel: RideOptionSegmentModelLinker, pickupLocation: Location) {
+    
+    internal init(selectedRideID: RideOptionID? = nil, rideOptionsRepository: RideOptionsRepository, rideOptionSegmentModel: RideOptionSegmentModel, pickupLocation: Location) {
         self.selectedRideID = selectedRideID
         self.rideOptionsRepository = rideOptionsRepository
         self.rideOptionSegmentModel = rideOptionSegmentModel
         self.pickupLocation = pickupLocation
-        bindState()
+        bindSegmentState()
     }
     
-   private var selectedRideID : RideID? = nil
+    private var selectedRideID : RideOptionID? = nil {
+        didSet{//Test
+            print(selectedRideID)
+        }
+    }
     let rideOptionsRepository : RideOptionsRepository
-    let rideOptionSegmentModel : RideOptionSegmentModelLinker
+    let rideOptionSegmentModel : RideOptionSegmentModel
     
     var subscribtions : Set<AnyCancellable> = []
     let pickupLocation : Location
@@ -32,9 +34,8 @@ class RideOptionViewModel: SelectOptionResponder {
     
     func loadAllRides(){
         rideOptionsRepository.loadAvilableRideOptions(at: pickupLocation)
-            .flatMap(\.publisher)
-            .map{RideOptionOptionModel(rideOption:$0, selectOptionResponder: self)}
-            .collect()
+            .map{
+                return $0.map { RideOptionOptionModel(rideOption:$0, selectOptionResponder: self.rideOptionSegmentModel)} }
             .assign(to: \.rideOptionOptionModels, on: rideOptionSegmentModel)
             .store(in: &subscribtions)
             
@@ -43,7 +44,7 @@ class RideOptionViewModel: SelectOptionResponder {
 
     
     
-    func bindState(){
+    func bindSegmentState(){ // Subscribe To Segment For selection to be set to the SelectRideID value
         rideOptionSegmentModel
             .$selectedRideID
             .assign(to: \.selectedRideID, on: self)
@@ -51,6 +52,9 @@ class RideOptionViewModel: SelectOptionResponder {
         
     }
     
+    @objc func onConfirm(){ // For Confirm Button
+        
+    }
     
     
     
@@ -64,28 +68,37 @@ protocol RideOptionsRepository{
 
 struct RideOption : Codable{
     let name : String
-    let id : RideID
+    let id : RideOptionID
     let imageName : RideOptionImageName
 }
-typealias RideID = String
+typealias RideOptionID = String
 struct RideOptionImageName : Codable {
     let selected : String
     let unselected : String
 }
 
-class RideOptionSegmentModelLinker {
-    @Published var rideOptionOptionModels : [RideOptionOptionModel] = []
-    @Published var selectedRideID : RideID? = nil
-}
 
 class RideOptionOptionModel {
     enum RideImage {
         case loadedImage(UIImage , UIImage)
         case unloaded(String , String)
+        
+        var getSelected : UIImage? {
+          guard case .loadedImage(let selected, _) = self else {return nil}
+                return selected
+            }
+        
+        var getUnselected : UIImage? {
+            guard case .loadedImage(_, let unSelected) = self else {return nil}
+                  return unSelected
+              
+        }
+        
     }
     var rideImage : RideImage
     let name : String
-    let id : RideID
+    let id : RideOptionID
+    @Published var isSelected = false 
     let selectOptionResponder : SelectOptionResponder
     
     
@@ -99,6 +112,7 @@ class RideOptionOptionModel {
     
     @objc
     func onSelect(){
+        isSelected.toggle()
         selectOptionResponder.didSelectRideOption(id)
     }
 }
@@ -110,13 +124,15 @@ class RideOptionOptionModel {
 
 
 protocol SelectOptionResponder {
-    func didSelectRideOption(_ id : RideID)
+    func didSelectRideOption(_ id : RideOptionID)
 }
 
-class RideOptionSegmentModel : RideOptionSegmentModelLinker,  SelectOptionResponder {
+class RideOptionSegmentModel :   SelectOptionResponder {
+    @Published var rideOptionOptionModels : [RideOptionOptionModel] = [] //ViewSubsctibe To Build new Options
+    @Published var selectedRideID : RideOptionID? = nil // Whene Selected it will call didSelectRideOption and then set this value , the RideOptionsViewModel subscribe to it
+    @Published var viewRideOptionOptionModel : [RideOptionOptionModel] = []
     internal init(imageLoader: SigmentImageLoader) {
         self.imageLoader = imageLoader
-        super.init()
         bindValues()
     }
     
@@ -126,15 +142,20 @@ class RideOptionSegmentModel : RideOptionSegmentModelLinker,  SelectOptionRespon
     
     func bindValues(){
         $rideOptionOptionModels
-            .sink {[weak self] _ in
-                guard let self = self else {return}
-                self.imageLoader.loadImages(rideOptionOptionModel: &self.rideOptionOptionModels)
-            }
-            .store(in: &subscribtions)
+            .flatMap(imageLoader.loadImages(rideOptionOptionModel:))
+            .assign(to: &$viewRideOptionOptionModel)
+        
+           
     }
             
-    func didSelectRideOption(_ id: RideID) {
+    func didSelectRideOption(_ id: RideOptionID) {
         selectedRideID = id
+        
+        deSelectOtherModels()
+    }
+    
+    func deSelectOtherModels(){
+        rideOptionOptionModels.filter({$0.id != selectedRideID}).forEach({$0.isSelected = false})
     }
 }
 
@@ -142,7 +163,7 @@ class RideOptionSegmentModel : RideOptionSegmentModelLinker,  SelectOptionRespon
 
 
 protocol SigmentImageLoader{
-    func loadImages(rideOptionOptionModel : inout [RideOptionOptionModel])
+    func loadImages(rideOptionOptionModel :  [RideOptionOptionModel])->AnyPublisher<[RideOptionOptionModel],Never>
 }
 
 
@@ -153,15 +174,22 @@ class RideOptionsSigmentImageLoader : SigmentImageLoader{
     
     
     let imageCache : ImageCache
-    func loadImages(rideOptionOptionModel: inout [RideOptionOptionModel]) {
-        rideOptionOptionModel.forEach { model in
-            
-            guard case .unloaded(let selected, let unselected) = model.rideImage else {return}
-           let imagesPublisher = imageCache.loadImages(first: selected, second: unselected)
-               let _ = imagesPublisher.sink { images in
-                    model.rideImage = .loadedImage(images.0 , images.1)
+    func loadImages(rideOptionOptionModel:  [RideOptionOptionModel])->AnyPublisher<[RideOptionOptionModel],Never> {
+        
+        rideOptionOptionModel.publisher
+            .map { model  in
+                if case .unloaded(let selected, let unselected) = model.rideImage {
+                imageCache.loadImages(first: selected, second: unselected)
+                    .sink { selectedImage , unselectedImage in
+                        model.rideImage = .loadedImage(selectedImage, unselectedImage)
+                    }
+                    .cancel()
+                    
                 }
-        }
+                return model
+            }
+            .collect()
+            .eraseToAnyPublisher()
            
     }
     

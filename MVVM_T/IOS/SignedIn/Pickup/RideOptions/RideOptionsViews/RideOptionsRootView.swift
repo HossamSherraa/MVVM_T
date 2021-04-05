@@ -7,15 +7,19 @@
 
 import UIKit
 class RideOptionsRootView : UIView {
-    
-    
-    
+    var viewModel : RideOptionViewModel?
     init() {
         super.init(frame: .zero)
+       
+    }
+    
+    convenience init (viewModel : RideOptionViewModel){
+        self.init()
+        self.viewModel = viewModel
         buildViewHeirarchy()
         configViewStyle()
         buildViewsConstraints()
-        
+        linkViewActions()
     }
     
     required init?(coder: NSCoder) {
@@ -33,8 +37,8 @@ class RideOptionsRootView : UIView {
         return button
     }()
     
-    let stackRideOptionsContainer : UIView = {
-        let container = RideOptionContainerView()
+    lazy var stackRideOptionsContainer : UIView = {
+        let container = RideOptionContainerView(viewModel: self.viewModel!.rideOptionSegmentModel)
         container.turnOffAutoresizingMask()
         return container
     }()
@@ -43,6 +47,10 @@ class RideOptionsRootView : UIView {
         
        addSubview(stackRideOptionsContainer)
        addSubview(confirmButton)
+    }
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        viewModel?.loadAllRides()
     }
     
     func configViewStyle(){
@@ -54,7 +62,7 @@ class RideOptionsRootView : UIView {
     func buildViewsConstraints(){
         NSLayoutConstraint.activate([
 
-            heightAnchor.constraint(greaterThanOrEqualToConstant: 300),
+            
             
             stackRideOptionsContainer.topAnchor.constraint(equalTo: topAnchor , constant: 20),
             stackRideOptionsContainer.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -71,6 +79,11 @@ class RideOptionsRootView : UIView {
            
         ])
         
+    }
+    
+    
+    func linkViewActions(){
+        confirmButton.addTarget(viewModel, action: #selector(viewModel?.onConfirm), for: .touchUpInside)
     }
     
     

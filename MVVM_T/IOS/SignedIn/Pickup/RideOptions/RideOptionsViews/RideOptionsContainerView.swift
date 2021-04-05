@@ -6,30 +6,37 @@
 //
 
 import UIKit
+import Combine
 struct TestOptionOptionModel {
     let name : String = "Option1"
     let selectedImage = "available_wallabe_marker"
     let unselectedImage = "available_kangaroo_marker"
 }
 class RideOptionContainerView : UIView {
-    
+    var subscribtions : Set<AnyCancellable> = []
+    var viewModel : RideOptionSegmentModel?
     init() {
         super.init(frame: .zero)
         buildViewHeirarchy()
-        buildRideOptions()
+        
+        
+        
     }
     
+    convenience init(viewModel : RideOptionSegmentModel?){
+        self.init()
+        self.viewModel = viewModel
+        linkViewState()
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    var rideOptionOptionModel : [TestOptionOptionModel] = Array.init(repeating: TestOptionOptionModel(), count: 3)
-    
     let rideOptionsStackView : UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
-        stackView.distribution = .equalCentering
-        stackView.alignment = .fill
-        
+        stackView.distribution = .equalSpacing
+        stackView.alignment = .center
+        stackView.spacing = 6
         stackView.turnOffAutoresizingMask()
         return stackView
     }()
@@ -47,11 +54,19 @@ class RideOptionContainerView : UIView {
         ])
     }
     
-    func buildRideOptions(){
+    
+    func linkViewState(){
+        viewModel?.$viewRideOptionOptionModel
+            .sink(receiveValue: { [weak self] rideOptionOptionModels in
+                self?.buildRideOptions(rideOptionsOptionsModels : rideOptionOptionModels)
+            })
+            .store(in: &subscribtions)
+    }
+    
+    func buildRideOptions(rideOptionsOptionsModels : [RideOptionOptionModel]){
         rideOptionsStackView.removeAllArrangedViews()
-        rideOptionOptionModel.forEach { rideOptionOptionModel in
-            let rideOptionView = RideOptionView()
-            rideOptionView.configViewWith(rideOptionOptionView: rideOptionOptionModel)
+       rideOptionsOptionsModels.forEach { rideOptionOptionModel in
+            let rideOptionView = RideOptionView(viewModel: rideOptionOptionModel)
             self.rideOptionsStackView.addArrangedSubview(rideOptionView)
         }
     }

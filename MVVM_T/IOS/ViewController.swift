@@ -12,13 +12,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rideViews = RequestingRideView()
+        let rideViews = PickupRootView()
         rideViews.turnOffAutoresizingMask()
         view.addSubview(rideViews)
         NSLayoutConstraint.activate([
             rideViews.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             rideViews.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            rideViews.heightAnchor.constraint(equalTo: view.heightAnchor , multiplier: 1 , constant: -80),
+            rideViews.heightAnchor.constraint(equalTo: view.heightAnchor , multiplier: 1 ),
             rideViews.widthAnchor.constraint(equalTo: view.widthAnchor , multiplier: 1)
         ])
         

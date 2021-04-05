@@ -6,22 +6,34 @@
 //
 
 import UIKit
+import Combine
 class RideOptionView : UIView {
+    var viewModel : RideOptionOptionModel?
+    private var subscribtions : Set<AnyCancellable> = []
     init() {
         super.init(frame: .zero)
         buildViewHeirarchy()
         buildConstraints()
+        
+        
     }
     
+    convenience init(viewModel : RideOptionOptionModel){
+        self.init()
+        self.viewModel = viewModel
+        linkViewState()
+        linkViewActionsToViewModel()
+        
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
    private let namelabel : UILabel = {
         let lable = UILabel()
-        lable.text = "Grand Twoer"
+        lable.text = "Grand"
         lable.turnOffAutoresizingMask()
         lable.textColor = .white
-        lable.font = .systemFont(ofSize: 13, weight: .semibold)
+        lable.font = .systemFont(ofSize: 17, weight: .semibold)
         return lable
     }()
     
@@ -57,19 +69,19 @@ class RideOptionView : UIView {
         NSLayoutConstraint.activate([
         //ContainerViewHeight
            
-            widthAnchor.constraint(equalToConstant: 80),
+            widthAnchor.constraint(equalToConstant: 65),
             heightAnchor.constraint(equalToConstant: 120),
             iconImage.topAnchor.constraint(equalTo: topAnchor , constant: -10),
             iconImage.widthAnchor.constraint(equalTo: widthAnchor, constant: 20),
             iconImage.heightAnchor.constraint(equalTo: widthAnchor, constant: 20),
             iconImage.centerXAnchor.constraint(equalTo: centerXAnchor),
-            
-            bottomAnchor.constraint(equalTo:namelabel.bottomAnchor , constant: 20 ),
+            bottomAnchor.constraint(equalTo:namelabel.bottomAnchor , constant: 30 ),
             namelabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
         //
         ])
     }
+    
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -77,10 +89,28 @@ class RideOptionView : UIView {
         
     }
     
-    func configViewWith(rideOptionOptionView : TestOptionOptionModel){
-        self.iconImage.image = UIImage(named: rideOptionOptionView.selectedImage)
-        self.namelabel.text = rideOptionOptionView.name
+    func linkViewActionsToViewModel (){
+        attachTapGesture()
+        
     }
+    
+    func linkViewState(){
+        viewModel?.$isSelected
+            .sink(receiveValue: { [weak self] isSelected in
+
+                self?.iconImage.image = isSelected ? self?.viewModel?.rideImage.getSelected: self?.viewModel?.rideImage.getUnselected
+               
+            })
+            .store(in: &subscribtions)
+    }
+    
+    func attachTapGesture(){
+        let tapGestureRecognizer = UITapGestureRecognizer(target: viewModel, action: #selector(self.viewModel?.onSelect))
+        self.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    
+   
     
     
 }
