@@ -9,7 +9,7 @@ import UIKit
 class RideOptionsViewController : NiblessViewController{
     let viewModel :  RideOptionViewModel
     init(rideOptionsViewControllerFactory : RideOptionsViewControllerFactory) {
-        viewModel = rideOptionsViewControllerFactory.makeViewModel()
+        viewModel = rideOptionsViewControllerFactory.makeRideOptionsViewModel()
         super.init()
         self.transitioningDelegate = self
         self.modalPresentationStyle = .custom
@@ -59,9 +59,9 @@ class HEPresenetationController : UIPresentationController {
         blackBackgroundView.frame = presentingViewController.view.bounds
         blackBackgroundView.alpha = 0
         blackBackgroundView.backgroundColor = .black
-        presentingViewController.view.insertSubview(blackBackgroundView, at: 0)
+        presentingViewController.view.addSubview(blackBackgroundView)
         presentedViewController.transitionCoordinator?.animate(alongsideTransition: {[weak self] _ in
-            self?.blackBackgroundView.alpha = 0.2
+            self?.blackBackgroundView.alpha = 0.5
         }, completion: nil)
     }
     
@@ -69,6 +69,20 @@ class HEPresenetationController : UIPresentationController {
         presentedViewController.transitionCoordinator?.animate(alongsideTransition: { [weak self] _  in
                 self?.blackBackgroundView.alpha = 1
         }, completion: nil)
+    }
+    
+    override func dismissalTransitionWillBegin() {
+        presentedViewController.transitionCoordinator?.animate(alongsideTransition: {[weak self] _ in
+            self?.blackBackgroundView.alpha = 0
+            
+        }, completion: nil)
+        
+    }
+    
+    override func dismissalTransitionDidEnd(_ completed: Bool) {
+        if completed {
+            self.blackBackgroundView.removeFromSuperview()
+        }
     }
 }
 
@@ -139,5 +153,5 @@ class PresentedViewFrame : PresetedViewFrameBuilder {
 }
 
 protocol RideOptionsViewControllerFactory{
-    func makeViewModel()->RideOptionViewModel
+    func makeRideOptionsViewModel()->RideOptionViewModel
 }

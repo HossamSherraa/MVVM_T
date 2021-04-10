@@ -7,12 +7,15 @@
 
 import UIKit
 class PickupRootView : UIView {
-    
-    init() {
+    var viewModel : PickupViewModel?
+    init(viewModel : PickupViewModel? = nil ) {
+        self.viewModel = viewModel
         super.init(frame: .zero)
         buildHeirarchy()
         configViewConstraints()
         configViewStyle()
+        linkButtonToViewModel()
+        
     }
     
     required init?(coder: NSCoder) {
@@ -57,6 +60,12 @@ class PickupRootView : UIView {
         whereToGoButton.layer.shadowOpacity = 0.2
         whereToGoButton.layer.cornerCurve = .continuous
         
+      
+    }
+    
+    
+    private func linkButtonToViewModel(){
+        self.whereToGoButton.addTarget(viewModel, action: #selector(viewModel?.onPressWhereToGo), for: .touchUpInside)
     }
     
 }

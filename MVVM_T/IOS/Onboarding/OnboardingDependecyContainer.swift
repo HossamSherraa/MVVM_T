@@ -16,12 +16,12 @@ class OnboardingDependencyContrainer : OnboardingFactory , SigninViewModelFactor
     
     
     let onBoardingViewModel : OnboardingViewModel
-    let userSession : UserSessionRepository
+    let userSessionRepository : UserSessionRepository
     
     
      func makeSigninViewModel() -> SigninViewModel {
 
-       return SigninViewModel(sessionRepository: userSession, signedInResponder: onBoardingViewModel)
+       return SigninViewModel(sessionRepository: userSessionRepository, signedInResponder: onBoardingViewModel)
     }
     
     func makeWelcomeViewModel() -> WelcomeViewModel {
@@ -30,7 +30,7 @@ class OnboardingDependencyContrainer : OnboardingFactory , SigninViewModelFactor
     
 
     func makeSignupViewModel() -> SignupViewModel {
-        SignupViewModel(sessionRepository: userSession, signedInResponder: onBoardingViewModel)
+        SignupViewModel(sessionRepository: userSessionRepository, signedInResponder: onBoardingViewModel)
     }
     
     
@@ -66,7 +66,7 @@ class OnboardingDependencyContrainer : OnboardingFactory , SigninViewModelFactor
             let datastore = makeDataStore()
             return KooperUserSessionRepository(datastore: datastore, remoteApi: api)
         }
-        self.userSession = makeUserSessionRepository()
+        self.userSessionRepository = makeUserSessionRepository()
         
         func makeOnBoardingViewModel()->OnboardingViewModel {
             OnboardingViewModel()

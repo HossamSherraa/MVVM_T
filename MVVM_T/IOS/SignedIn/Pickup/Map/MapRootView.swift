@@ -10,22 +10,28 @@ import UIKit
 import Combine
 
 class MapRootView : MKMapView {
-    
-    
    
+    private var viewModel : MapViewModel?
+    private var subscribtions : Set<AnyCancellable> = []
     internal init(dropOffLocation: Location) {
         self.dropOffLocation = dropOffLocation
         super.init(frame: .zero)
         delegate = self
     }
     
+    convenience init(viewModel : MapViewModel , dropOffLocation : Location){
+        self.init(dropOffLocation:dropOffLocation)
+        self.viewModel = viewModel
+        linkeToViewModelState()
+        
+    }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     let dropOffLocation : Location
-    private let defaultMapSpan = MKCoordinateSpan(latitudeDelta: 2, longitudeDelta: 2)
-    private let mapDropoffLocationSpan = MKCoordinateSpan(latitudeDelta: 0.017, longitudeDelta: 0.017)
+    private let defaultMapSpan = MKCoordinateSpan(latitudeDelta: 10, longitudeDelta: 10)
+    private let mapDropoffLocationSpan = MKCoordinateSpan(latitudeDelta: 0.117, longitudeDelta: 0.117)
     
     func addDropOffLocation( at location : Location){
         let annotation = MapAnnotaion(type: .dropOff, location: location)
@@ -44,10 +50,27 @@ class MapRootView : MKMapView {
     }
     
     private func zoomInTo( location : Location){
-        setRegion(.init(center: CLLocationCoordinate2D.init(latitude: location.latitude, longitude: location.longitude), span: defaultMapSpan), animated: true)
+        setRegion(.init(center: CLLocationCoordinate2D.init(latitude: location.latitude, longitude: location.longitude), span: mapDropoffLocationSpan), animated: true)
     }
     
-
+    private func linkeToViewModelState(){
+        viewModel?
+            .$dropOffLocation
+            .sink(receiveValue: { [weak self]location in
+                self?.addDropOffLocation(at: location)
+                self?.zoomInTo(location: location)
+            })
+            .store(in: &subscribtions)
+        
+        viewModel?
+            .$pickuplocation
+            .compactMap({$0})
+            .sink(receiveValue: { [weak self] location in
+                self?.addPickupLocation(at: location)
+                self?.zoomInTo(location: location)
+            })
+            .store(in: &subscribtions)
+    }
     
 }
 

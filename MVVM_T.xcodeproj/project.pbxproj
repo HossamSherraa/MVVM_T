@@ -33,6 +33,9 @@
 		9F1F7579261528BC0073AE90 /* NamedLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F7578261528BC0073AE90 /* NamedLocation.swift */; };
 		9F1F757C261528E10073AE90 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F757B261528E10073AE90 /* Location.swift */; };
 		9F1F757F26152F1A0073AE90 /* PickupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1F757E26152F1A0073AE90 /* PickupViewController.swift */; };
+		9F2CC9BA261CB19A005506BC /* SignedInDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CC9B9261CB19A005506BC /* SignedInDependencyContainer.swift */; };
+		9F2CC9BE261CBDD3005506BC /* SignedInRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2CC9BD261CBDD3005506BC /* SignedInRootView.swift */; };
+		9F4EF7A826211B3A00A52875 /* RideRequestViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F4EF7A726211B3A00A52875 /* RideRequestViewModel.swift */; };
 		9F5AD80A2612245C00184A32 /* ErrorPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F5AD8092612245C00184A32 /* ErrorPresenter.swift */; };
 		9F6EE55926179C82005DE5FD /* RideOptionSegmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F6EE55826179C82005DE5FD /* RideOptionSegmentModel.swift */; };
 		9F75B8BF2618709C007F227C /* RideOptionsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F75B8BE2618709C007F227C /* RideOptionsContainerView.swift */; };
@@ -73,7 +76,7 @@
 		9F7E3B9B2610C87200B94191 /* OnboardingDependecyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E3B742610C87200B94191 /* OnboardingDependecyContainer.swift */; };
 		9F7E3B9D2610C87200B94191 /* SingupRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7E3B772610C87200B94191 /* SingupRootView.swift */; };
 		9F7F2F502618A94400697EBC /* RideRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7F2F4F2618A94400697EBC /* RideRequestViewController.swift */; };
-		9F7F2F532618A98A00697EBC /* RequestingRideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7F2F522618A98A00697EBC /* RequestingRideView.swift */; };
+		9F7F2F532618A98A00697EBC /* RideRequestRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7F2F522618A98A00697EBC /* RideRequestRootView.swift */; };
 		9F8516A7261914D9007B77BA /* SetConstraintsPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8516A6261914D9007B77BA /* SetConstraintsPriority.swift */; };
 		9FF9C0E426135440006A94B1 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF9C0E326135440006A94B1 /* SignedInViewController.swift */; };
 		9FF9C0E72613548F006A94B1 /* ProfileContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF9C0E62613548F006A94B1 /* ProfileContentViewController.swift */; };
@@ -116,6 +119,9 @@
 		9F1F7578261528BC0073AE90 /* NamedLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamedLocation.swift; sourceTree = "<group>"; };
 		9F1F757B261528E10073AE90 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		9F1F757E26152F1A0073AE90 /* PickupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickupViewController.swift; sourceTree = "<group>"; };
+		9F2CC9B9261CB19A005506BC /* SignedInDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInDependencyContainer.swift; sourceTree = "<group>"; };
+		9F2CC9BD261CBDD3005506BC /* SignedInRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInRootView.swift; sourceTree = "<group>"; };
+		9F4EF7A726211B3A00A52875 /* RideRequestViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestViewModel.swift; sourceTree = "<group>"; };
 		9F5AD8092612245C00184A32 /* ErrorPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPresenter.swift; sourceTree = "<group>"; };
 		9F5C77FB2610CB36007D47D3 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F6EE55826179C82005DE5FD /* RideOptionSegmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideOptionSegmentModel.swift; sourceTree = "<group>"; };
@@ -158,7 +164,7 @@
 		9F7E3B742610C87200B94191 /* OnboardingDependecyContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingDependecyContainer.swift; sourceTree = "<group>"; };
 		9F7E3B772610C87200B94191 /* SingupRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingupRootView.swift; sourceTree = "<group>"; };
 		9F7F2F4F2618A94400697EBC /* RideRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestViewController.swift; sourceTree = "<group>"; };
-		9F7F2F522618A98A00697EBC /* RequestingRideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestingRideView.swift; sourceTree = "<group>"; };
+		9F7F2F522618A98A00697EBC /* RideRequestRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestRootView.swift; sourceTree = "<group>"; };
 		9F8516A6261914D9007B77BA /* SetConstraintsPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetConstraintsPriority.swift; sourceTree = "<group>"; };
 		9FF9C0E326135440006A94B1 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
 		9FF9C0E62613548F006A94B1 /* ProfileContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentViewController.swift; sourceTree = "<group>"; };
@@ -257,6 +263,7 @@
 				9F79682626179606005FE91D /* RideOption */,
 				9F1F7570261520000073AE90 /* PickupLocationPicker */,
 				9F0724ED2614E78100211F49 /* Map */,
+				9F4EF7A626211AE600A52875 /* RideRequest */,
 			);
 			path = Pickup;
 			sourceTree = "<group>";
@@ -266,7 +273,6 @@
 			children = (
 				9F1F757E26152F1A0073AE90 /* PickupViewController.swift */,
 				9F099B5B2619245D00BF0B6B /* PickupRootView.swift */,
-				9F7F2F4E2618A92D00697EBC /* RideRequest */,
 				9F064D252617DAD300CFBF12 /* RideOptions */,
 				9F0725002615019800211F49 /* PickupLocationPicker */,
 				9F0724E72614BDD400211F49 /* Map */,
@@ -318,6 +324,14 @@
 				9F1F7571261520300073AE90 /* PickupLocationPickerViewModel.swift */,
 			);
 			path = PickupLocationPicker;
+			sourceTree = "<group>";
+		};
+		9F4EF7A626211AE600A52875 /* RideRequest */ = {
+			isa = PBXGroup;
+			children = (
+				9F4EF7A726211B3A00A52875 /* RideRequestViewModel.swift */,
+			);
+			path = RideRequest;
 			sourceTree = "<group>";
 		};
 		9F5C78002610D3A0007D47D3 /* DataLayer */ = {
@@ -561,7 +575,7 @@
 			isa = PBXGroup;
 			children = (
 				9F7F2F4F2618A94400697EBC /* RideRequestViewController.swift */,
-				9F7F2F522618A98A00697EBC /* RequestingRideView.swift */,
+				9F7F2F522618A98A00697EBC /* RideRequestRootView.swift */,
 			);
 			path = RideRequest;
 			sourceTree = "<group>";
@@ -569,7 +583,10 @@
 		9FF9C0E22613542B006A94B1 /* SignedIn */ = {
 			isa = PBXGroup;
 			children = (
+				9F2CC9B9261CB19A005506BC /* SignedInDependencyContainer.swift */,
 				9FF9C0E326135440006A94B1 /* SignedInViewController.swift */,
+				9F2CC9BD261CBDD3005506BC /* SignedInRootView.swift */,
+				9F7F2F4E2618A92D00697EBC /* RideRequest */,
 				9F0724E62614BD7B00211F49 /* Pickup */,
 				9F0724D12614A1C700211F49 /* GetLocation */,
 				9F0724BD2614908B00211F49 /* Profile */,
@@ -677,6 +694,7 @@
 				9F7E3B982610C87200B94191 /* NewAccount.swift in Sources */,
 				9F7E3B9A2610C87200B94191 /* MainViewController.swift in Sources */,
 				9F7E3B8B2610C87200B94191 /* SignedInResponder.swift in Sources */,
+				9F4EF7A826211B3A00A52875 /* RideRequestViewModel.swift in Sources */,
 				9F099B5426191F8900BF0B6B /* PickupViewModel.swift in Sources */,
 				9F7E3B832610C87200B94191 /* TurnOffAutoresizingMask.swift in Sources */,
 				9F7E3B812610C87200B94191 /* SignupViewModel.swift in Sources */,
@@ -688,8 +706,9 @@
 				9F1F757F26152F1A0073AE90 /* PickupViewController.swift in Sources */,
 				9F7E3B872610C87200B94191 /* OnboardingViewModel.swift in Sources */,
 				9FFF86342610FAE400C2768B /* UserProfile+CoreDataClass.swift in Sources */,
-				9F7F2F532618A98A00697EBC /* RequestingRideView.swift in Sources */,
+				9F7F2F532618A98A00697EBC /* RideRequestRootView.swift in Sources */,
 				9F7E3B882610C87200B94191 /* MainView.swift in Sources */,
+				9F2CC9BE261CBDD3005506BC /* SignedInRootView.swift in Sources */,
 				9F064D2A2617DB3E00CFBF12 /* RideOptionsRootView.swift in Sources */,
 				9F0724F72615007E00211F49 /* MapAnnotation.swift in Sources */,
 				9FFF86262610F71700C2768B /* ManagedObjectContext.swift in Sources */,
@@ -710,6 +729,7 @@
 				9FF9C0EA261354A1006A94B1 /* ProfileRootView.swift in Sources */,
 				9F064D272617DB2700CFBF12 /* RideOptionsViewController.swift in Sources */,
 				9F5AD80A2612245C00184A32 /* ErrorPresenter.swift in Sources */,
+				9F2CC9BA261CB19A005506BC /* SignedInDependencyContainer.swift in Sources */,
 				9F0724FD261500DB00211F49 /* AnnotationView.swift in Sources */,
 				9F0724EF2614E78B00211F49 /* MapViewModel.swift in Sources */,
 				9F0724C2261490BF00211F49 /* ProfileViewModel.swift in Sources */,

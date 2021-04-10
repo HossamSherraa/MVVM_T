@@ -30,13 +30,17 @@ class LocationGetterRootView : UIView {
         buildViewHeirarchy()
         buildConstraints()
         configStyle()
-        startGetLocation()
+        
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        startGetLocation()
+    }
     func buildViewHeirarchy(){
         addSubview(kooperLogo)
         addSubview(titleLabel)

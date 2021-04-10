@@ -7,9 +7,10 @@
 
 import UIKit
 import Combine
-class RideOptionView : UIView {
+class RideOptionView : UIView  {
+    var subscriptions: Set<AnyCancellable> = []
+    
     var viewModel : RideOptionOptionModel?
-    private var subscribtions : Set<AnyCancellable> = []
     init() {
         super.init(frame: .zero)
         buildViewHeirarchy()
@@ -97,11 +98,16 @@ class RideOptionView : UIView {
     func linkViewState(){
         viewModel?.$isSelected
             .sink(receiveValue: { [weak self] isSelected in
-
                 self?.iconImage.image = isSelected ? self?.viewModel?.rideImage.getSelected: self?.viewModel?.rideImage.getUnselected
-               
             })
-            .store(in: &subscribtions)
+            .store(in: &subscriptions)
+        
+        
+        viewModel?.$name.sink(receiveValue: { [weak self] text in
+            self?.namelabel.text = text
+        })
+        .store(in: &subscriptions)
+        
     }
     
     func attachTapGesture(){

@@ -12,8 +12,18 @@ enum PickupViewProgress {
     case pickupLocationPicker(Location)
     case selectOption(Location)
 }
-class PickupViewModel : ConfirmRideOptionResponder , PickupLocationDeterminedResponder {
-    internal init(location: Location, requestRideRepository: RequestRideRepository, requestRideResponder: RequestRideResponder) {
+class PickupViewModel : ConfirmRideOptionResponder   , PickupLocationPickerDeterminedResponder , PickupLocationPickerDismissedResponder  {
+    
+    
+    func pickupLocationPickerDismissed() {
+        pickupViewProgress = .map
+    }
+    func pickupLocationPickerDetermined(_ location: Location) {
+        self.pickupLocation = location
+        pickupViewProgress = .selectOption(location)
+    }
+    
+    internal init(location: Location, requestRideRepository: RequestRideRepository, requestRideResponder: PickupRequestResponder) {
         self.location = location
         self.requestRideRepository = requestRideRepository
         self.requestRideResponder = requestRideResponder
@@ -21,29 +31,29 @@ class PickupViewModel : ConfirmRideOptionResponder , PickupLocationDeterminedRes
     
     
     let location : Location
-    let pickupLocation : Location? = nil
+    var pickupLocation : Location? = nil
     
     var subscribtions : Set<AnyCancellable> = []
     let requestRideRepository : RequestRideRepository
     
-    let requestRideResponder : RequestRideResponder
+    let requestRideResponder : PickupRequestResponder
     
     @Published var pickupViewProgress : PickupViewProgress = .map
     
     
     
     func confirmedRideOption(_ rideOptionID: RideOptionID) {
+        
         guard let pickupLocation = pickupLocation else {return}
         requestRideRepository.createRideRequest(dropOffLocation: location, pickupLocation: pickupLocation, rideOptionID: rideOptionID)
-            .sink(receiveValue: requestRideResponder.requestNewRide(_:))
+            .sink(receiveValue: requestRideResponder.didRecievedRequest(_:))
             .store(in: &subscribtions)
         
     }
     
     
-    func locationDidDetermined(_ location: Location) {
-        pickupViewProgress = .selectOption(location)
-    }
+    
+    
     
     
     
@@ -59,9 +69,7 @@ class PickupViewModel : ConfirmRideOptionResponder , PickupLocationDeterminedRes
 
 
 
-protocol RequestRideResponder {
-    func requestNewRide(_ ride : RideRequest) // PassedTo NEXT Wait for pickup Responder
-}
+
 
 protocol ConfirmRideOptionResponder {
     func confirmedRideOption(_ rideOptionID : RideOptionID ) //Used To Create Request

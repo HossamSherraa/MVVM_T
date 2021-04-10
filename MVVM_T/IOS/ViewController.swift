@@ -12,7 +12,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let rideViews = PickupRootView()
+        let rideViews = RideRequestRootView()
         rideViews.turnOffAutoresizingMask()
         view.addSubview(rideViews)
         NSLayoutConstraint.activate([
@@ -21,6 +21,10 @@ class ViewController: UIViewController {
             rideViews.heightAnchor.constraint(equalTo: view.heightAnchor , multiplier: 1 ),
             rideViews.widthAnchor.constraint(equalTo: view.widthAnchor , multiplier: 1)
         ])
+        
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (_) in
+            rideViews.animateToRequestNewRide()
+        }
         
        
         

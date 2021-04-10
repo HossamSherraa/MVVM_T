@@ -6,11 +6,19 @@
 //
 
 import Combine
-class MapViewModel {
+protocol MapPickupLocationDeterminedResponder{
+    func updatePickupLocation (location : Location)
+}
+class MapViewModel : MapPickupLocationDeterminedResponder {
+    func updatePickupLocation(location: Location) {
+        self.pickuplocation = location
+    }
+    
     
     init(location : Location) {
         dropOffLocation = location
     }
     @Published var dropOffLocation : Location
-    @Published var pickOfflocation : Location? = nil
+    @Published var pickuplocation : Location? = nil
+    
 }

@@ -8,24 +8,25 @@
 import Foundation
 import Combine
 import UIKit
+protocol PickupRequestResponder{
+    func didRecievedRequest(_ rideRequest : RideRequest)
+}
 class RideOptionViewModel {
     
     
-    internal init(selectedRideID: RideOptionID? = nil, rideOptionsRepository: RideOptionsRepository, rideOptionSegmentModel: RideOptionSegmentModel, pickupLocation: Location) {
-        self.selectedRideID = selectedRideID
+    internal init(selectedRideID: RideOptionID? = nil, rideOptionsRepository: RideOptionsRepository, rideOptionSegmentModel: RideOptionSegmentModel, pickupLocation: Location , confirmRideOptionResponder : ConfirmRideOptionResponder) {
+        self.selectedRideOptionID = selectedRideID
         self.rideOptionsRepository = rideOptionsRepository
         self.rideOptionSegmentModel = rideOptionSegmentModel
         self.pickupLocation = pickupLocation
+        self.confirmRideOptionResponder = confirmRideOptionResponder
         bindSegmentState()
     }
     
-    private var selectedRideID : RideOptionID? = nil {
-        didSet{//Test
-            print(selectedRideID)
-        }
-    }
+    private var selectedRideOptionID : RideOptionID? = nil
     let rideOptionsRepository : RideOptionsRepository
     let rideOptionSegmentModel : RideOptionSegmentModel
+    let confirmRideOptionResponder : ConfirmRideOptionResponder
     
     var subscribtions : Set<AnyCancellable> = []
     let pickupLocation : Location
@@ -47,12 +48,14 @@ class RideOptionViewModel {
     func bindSegmentState(){ // Subscribe To Segment For selection to be set to the SelectRideID value
         rideOptionSegmentModel
             .$selectedRideID
-            .assign(to: \.selectedRideID, on: self)
+            .assign(to: \.selectedRideOptionID, on: self)
             .store(in: &subscribtions)
         
     }
     
     @objc func onConfirm(){ // For Confirm Button
+        guard let selectedRideOptionID = self.selectedRideOptionID else {return}
+        confirmRideOptionResponder.confirmedRideOption(selectedRideOptionID)
         
     }
     
@@ -96,7 +99,7 @@ class RideOptionOptionModel {
         
     }
     var rideImage : RideImage
-    let name : String
+   @Published var name : String? = nil
     let id : RideOptionID
     @Published var isSelected = false 
     let selectOptionResponder : SelectOptionResponder
