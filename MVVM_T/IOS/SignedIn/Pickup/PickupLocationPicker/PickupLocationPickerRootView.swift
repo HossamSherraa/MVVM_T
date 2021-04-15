@@ -67,6 +67,6 @@ extension PickupLocationPickerRootView : UITableViewDataSource {
 extension PickupLocationPickerRootView : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedLocation = viewModel.locations[indexPath.row].location
-        viewModel.selectedLocation.send(selectedLocation)
+        viewModel.selectedLocation = selectedLocation
     }
 }

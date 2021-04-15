@@ -8,8 +8,13 @@
 import Combine
 protocol MapPickupLocationDeterminedResponder{
     func updatePickupLocation (location : Location)
+    func updateDropOffLocation(location : Location)
 }
 class MapViewModel : MapPickupLocationDeterminedResponder {
+    func updateDropOffLocation(location: Location) {
+        self.dropOffLocation = location
+    }
+    
     func updatePickupLocation(location: Location) {
         self.pickuplocation = location
     }

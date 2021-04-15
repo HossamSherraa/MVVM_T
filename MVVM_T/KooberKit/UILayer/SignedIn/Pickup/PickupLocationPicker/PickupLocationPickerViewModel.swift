@@ -21,15 +21,18 @@ protocol SearchLocationRepository {
 }
 
 class PickupLocationPickerViewModel {
-    internal init(searchLocationRepository: SearchLocationRepository, pickupLocationPickerDeterminedResponder: PickupLocationPickerDeterminedResponder, pickupLocationPickerDismissedResponder: PickupLocationPickerDismissedResponder) {
+    internal init(searchLocationRepository: SearchLocationRepository, pickupLocationPickerDeterminedResponder: PickupLocationPickerDeterminedResponder, pickupLocationPickerDismissedResponder: PickupLocationPickerDismissedResponder, mapPickupLocationDeterminedResponder: MapPickupLocationDeterminedResponder) {
         self.searchLocationRepository = searchLocationRepository
         self.pickupLocationPickerDeterminedResponder = pickupLocationPickerDeterminedResponder
         self.pickupLocationPickerDismissedResponder = pickupLocationPickerDismissedResponder
+        self.mapPickupLocationDeterminedResponder = mapPickupLocationDeterminedResponder
         setupBindings()
     }
     
+    
+    
    
-    let selectedLocation = PassthroughSubject<Location , Never>()
+    @Published var selectedLocation : Location? = nil
     @Published var locations : [NamedLocation] = []
     @Published var searchQuery : String? = nil
     
@@ -37,6 +40,7 @@ class PickupLocationPickerViewModel {
     var subscribtions : Set<AnyCancellable> = .init()
     let pickupLocationPickerDeterminedResponder : PickupLocationPickerDeterminedResponder
     let pickupLocationPickerDismissedResponder : PickupLocationPickerDismissedResponder
+    let mapPickupLocationDeterminedResponder  : MapPickupLocationDeterminedResponder
     
     
    private func loadAvailableLocations(_ query : String){
@@ -45,9 +49,11 @@ class PickupLocationPickerViewModel {
     }
     
     private func bindOnSelectedLocation(){
-        selectedLocation
+        $selectedLocation
+            .compactMap{$0}
             .sink {[weak self] location in
                 self?.pickupLocationPickerDeterminedResponder.pickupLocationPickerDetermined(location)
+                self?.mapPickupLocationDeterminedResponder.updateDropOffLocation(location: location)
             }
             .store(in: &subscribtions)
     }

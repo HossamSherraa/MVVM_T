@@ -91,8 +91,9 @@ extension SignedInDependencyContainer :  SignedInResponder , SignoutResponder {}
 
 
 class PickupViewControllerDependencyContainer : PickupViewControllerFactory , PickupLocationPickerFactory , RideOptionsViewControllerFactory , MapViewControllerFactory{
+    
     func makeMapViewModel() -> MapViewModel {
-      MapViewModel(location: location)
+     mapViewModel
     }
     
     func makePickupViewModel() -> PickupViewModel {
@@ -106,10 +107,12 @@ class PickupViewControllerDependencyContainer : PickupViewControllerFactory , Pi
     let location : Location
     let pickupViewModel : PickupViewModel
     let signedInViewModel : SignedInViewModel
+    let mapViewModel : MapViewModel
     
     init(location : Location , signedInViewModel : SignedInViewModel) {
         self.signedInViewModel = signedInViewModel
         self.location = location
+        self.mapViewModel =  MapViewModel(location: location)
         
            
         
@@ -130,7 +133,7 @@ class PickupViewControllerDependencyContainer : PickupViewControllerFactory , Pi
     }
     
     func makePickupLocationPickerViewModel() -> PickupLocationPickerViewModel {
-        .init(searchLocationRepository: FakeSearchLocationRepository(), pickupLocationPickerDeterminedResponder: pickupViewModel, pickupLocationPickerDismissedResponder: pickupViewModel)
+        .init(searchLocationRepository: FakeSearchLocationRepository(), pickupLocationPickerDeterminedResponder: pickupViewModel, pickupLocationPickerDismissedResponder: pickupViewModel, mapPickupLocationDeterminedResponder: mapViewModel)
     }
     
     func makeSearchRepository()->SearchLocationRepository {
@@ -145,7 +148,7 @@ class PickupViewControllerDependencyContainer : PickupViewControllerFactory , Pi
 struct FakeSearchLocationRepository : SearchLocationRepository {
     func searchForAvilableLocationsAt(_ query: String) -> AnyPublisher<[NamedLocation], Never> {
         let namesLocations : [NamedLocation] = [
-            .init(location: .init(latitude: 33.00, longitude: 32.00), name: "Opera"),
+            .init(location: .init(latitude:  31.12251, longitude:  31.12251), name: "Opera"),
             .init(location: .init(latitude: 26.00, longitude: 28.00), name: "Metro")
         ]
         return Just(namesLocations)
