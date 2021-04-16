@@ -53,22 +53,18 @@ class SignedInDependencyContainer : SignedInViewControllerFactory , ProfileViewC
         FakeLocator()
     }
     let signedInViewModel : SignedInViewModel
+    let mainViewModel : MainViewModel
+    let userSessionRepository : UserSessionRepository
     
-    func signedIn(userSession: UserSession) {
-        //Test
-    }
-    
-    func signedout() {
-        //Test
-    }
-    
-    let onBoardingDependencyContainer : OnboardingDependencyContrainer
-    init(onBoardingDependencyContainer : OnboardingDependencyContrainer) {
-        self.onBoardingDependencyContainer = onBoardingDependencyContainer
+   
+    init(userSessionRepository : UserSessionRepository , mainViewModel : MainViewModel) {
+
         self.signedInViewModel = SignedInViewModel()
+        self.mainViewModel = mainViewModel
+        self.userSessionRepository = userSessionRepository
     }
     func makeProfileViewModel() -> ProfileViewModel {
-        ProfileViewModel(userSessionRepository: onBoardingDependencyContainer.userSessionRepository, userSession: testUserSession, userProfile: testUserSession.userProfile!, signoutResponder: self, dismissProfileResponder: signedInViewModel)
+        ProfileViewModel(userSessionRepository: userSessionRepository, userSession: testUserSession, userProfile: testUserSession.userProfile!, signoutResponder: mainViewModel, dismissProfileResponder: signedInViewModel)
     }
     
     func makeProfileViewController() -> ProfileViewController {
@@ -83,11 +79,14 @@ class SignedInDependencyContainer : SignedInViewControllerFactory , ProfileViewC
         return self.signedInViewModel
     }
     
+    func makeSignedInViewController()->SignedInViewController{
+        SignedInViewController(signedInViewControllerFactory: self)
+    }
     
 }
 
 //Test
-extension SignedInDependencyContainer :  SignedInResponder , SignoutResponder {}
+
 
 
 class PickupViewControllerDependencyContainer : PickupViewControllerFactory , PickupLocationPickerFactory , RideOptionsViewControllerFactory , MapViewControllerFactory{

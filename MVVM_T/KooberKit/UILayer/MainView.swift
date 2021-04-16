@@ -6,5 +6,7 @@
 //
 
 enum MainView {
-    case launchViewController
+    case launch
+    case onBoarding
+    case signedIn(userSession : UserSession)
 }

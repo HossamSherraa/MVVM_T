@@ -6,6 +6,15 @@
 //
 
 import Combine
-struct MainViewModel {
-
+class MainViewModel : SignedInResponder , SignoutResponder {
+    func signedout() {
+        view =  .onBoarding
+    }
+    
+    func signedIn(userSession: UserSession) {
+        view = .signedIn(userSession: userSession)
+    }
+    
+    @Published var view : MainView = .launch
+    
 }

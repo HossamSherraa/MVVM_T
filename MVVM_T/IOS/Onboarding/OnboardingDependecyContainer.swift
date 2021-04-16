@@ -11,10 +11,6 @@ class OnboardingDependencyContrainer : OnboardingFactory , SigninViewModelFactor
 //    }
 //
    
-    
-    
-    
-    
     let onBoardingViewModel : OnboardingViewModel
     let userSessionRepository : UserSessionRepository
     
@@ -51,22 +47,8 @@ class OnboardingDependencyContrainer : OnboardingFactory , SigninViewModelFactor
         return OnboardingViewController(onboardingFactory: self, viewModel: onBoardingViewModel)
     }
     
-    init() {
-        func makeDataStore()->UserSessionDataStore{
-            let coreDataCreator = CoreDataStackCreator()
-            return CoreDataDataStore(coreDataCreator: coreDataCreator)
-        }
-        
-        func makeRemoteApi()->UserSessionRemoteApi{
-            FakeRemoteApi()
-            
-        }
-        func makeUserSessionRepository()->UserSessionRepository {
-            let api = makeRemoteApi()
-            let datastore = makeDataStore()
-            return KooperUserSessionRepository(datastore: datastore, remoteApi: api)
-        }
-        self.userSessionRepository = makeUserSessionRepository()
+    init(userSessionRepository : UserSessionRepository) {
+        self.userSessionRepository = userSessionRepository
         
         func makeOnBoardingViewModel()->OnboardingViewModel {
             OnboardingViewModel()

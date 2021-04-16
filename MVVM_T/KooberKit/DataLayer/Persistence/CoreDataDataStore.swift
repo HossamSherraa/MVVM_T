@@ -40,8 +40,6 @@ class CoreDataDataStore : UserSessionDataStore{
             }
             .compactMap({$0})
             .eraseToAnyPublisher()
-            
- 
     }
     
     func update(userSession: UserSession) {
@@ -54,7 +52,7 @@ class CoreDataDataStore : UserSessionDataStore{
             .publisher
             .compactMap({$0})
         .filter({$0?.state == UserSession.State.signin.rawValue})
-            .first()
+        .replaceEmpty(with: nil)
             .eraseToAnyPublisher()
            
         

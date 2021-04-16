@@ -14,6 +14,16 @@ class NiblessViewController : UIViewController{
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    func presentFullScreenViewController(_ viewController : UIViewController){
+        dismiss(animated: false , completion: {
+            viewController.modalPresentationStyle = .fullScreen
+            self.present(viewController, animated: false , completion: nil)
+            
+        })
+        
+    
+    }
 }
 
 extension UIViewController {

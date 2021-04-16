@@ -78,6 +78,8 @@
 		9F7F2F502618A94400697EBC /* RideRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7F2F4F2618A94400697EBC /* RideRequestViewController.swift */; };
 		9F7F2F532618A98A00697EBC /* RideRequestRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7F2F522618A98A00697EBC /* RideRequestRootView.swift */; };
 		9F8516A7261914D9007B77BA /* SetConstraintsPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8516A6261914D9007B77BA /* SetConstraintsPriority.swift */; };
+		9FAF8C642629242D006AD4C0 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FAF8C632629242D006AD4C0 /* LaunchViewController.swift */; };
+		9FCD4C4C26296DE9004C855F /* MainDependencyContrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FCD4C4B26296DE9004C855F /* MainDependencyContrainer.swift */; };
 		9FF9C0E426135440006A94B1 /* SignedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF9C0E326135440006A94B1 /* SignedInViewController.swift */; };
 		9FF9C0E72613548F006A94B1 /* ProfileContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF9C0E62613548F006A94B1 /* ProfileContentViewController.swift */; };
 		9FF9C0EA261354A1006A94B1 /* ProfileRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FF9C0E9261354A1006A94B1 /* ProfileRootView.swift */; };
@@ -166,6 +168,8 @@
 		9F7F2F4F2618A94400697EBC /* RideRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestViewController.swift; sourceTree = "<group>"; };
 		9F7F2F522618A98A00697EBC /* RideRequestRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideRequestRootView.swift; sourceTree = "<group>"; };
 		9F8516A6261914D9007B77BA /* SetConstraintsPriority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetConstraintsPriority.swift; sourceTree = "<group>"; };
+		9FAF8C632629242D006AD4C0 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		9FCD4C4B26296DE9004C855F /* MainDependencyContrainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDependencyContrainer.swift; sourceTree = "<group>"; };
 		9FF9C0E326135440006A94B1 /* SignedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignedInViewController.swift; sourceTree = "<group>"; };
 		9FF9C0E62613548F006A94B1 /* ProfileContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileContentViewController.swift; sourceTree = "<group>"; };
 		9FF9C0E9261354A1006A94B1 /* ProfileRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRootView.swift; sourceTree = "<group>"; };
@@ -480,8 +484,10 @@
 			children = (
 				9F7E3B332610C86100B94191 /* Main.storyboard */,
 				9F7E3B382610C86200B94191 /* LaunchScreen.storyboard */,
+				9FCD4C4B26296DE9004C855F /* MainDependencyContrainer.swift */,
 				9F7E3B312610C86100B94191 /* ViewController.swift */,
 				9F7E3B732610C87200B94191 /* MainViewController.swift */,
+				9FAF8C632629242D006AD4C0 /* LaunchViewController.swift */,
 				9F7E3B4E2610C87100B94191 /* Onboarding */,
 				9FF9C0E22613542B006A94B1 /* SignedIn */,
 			);
@@ -670,6 +676,7 @@
 				9F7E3B892610C87200B94191 /* WelcomeViewModel.swift in Sources */,
 				9FFF86362610FAE400C2768B /* UserSession+CoreDataClass.swift in Sources */,
 				9F0724DE2614A4C300211F49 /* LocationViewModel.swift in Sources */,
+				9FCD4C4C26296DE9004C855F /* MainDependencyContrainer.swift in Sources */,
 				9F099B5C2619245D00BF0B6B /* PickupRootView.swift in Sources */,
 				9F7E3B322610C86100B94191 /* ViewController.swift in Sources */,
 				9F099B572619201800BF0B6B /* MapViewController.swift in Sources */,
@@ -743,6 +750,7 @@
 				9F7E3B962610C87200B94191 /* MainViewModel.swift in Sources */,
 				9FF9C0E426135440006A94B1 /* SignedInViewController.swift in Sources */,
 				9FFF86372610FAE400C2768B /* UserSession+CoreDataProperties.swift in Sources */,
+				9FAF8C642629242D006AD4C0 /* LaunchViewController.swift in Sources */,
 				9F6EE55926179C82005DE5FD /* RideOptionSegmentModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -28,6 +28,7 @@ class SignedInViewController : NiblessViewController {
         self.makePickupViewController = signedInViewControllerFactory.makePickupViewController(_:)
         self.makeRideRequestViewController = signedInViewControllerFactory.makeRideRequestViewController(_:)
         super.init()
+        
     }
     
     
@@ -39,13 +40,17 @@ class SignedInViewController : NiblessViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configRootView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         bindToState()
-        
     }
     
   private func bindToState(){
     viewModel.$view
-        .receive(on: DispatchQueue.main)
+       
+      
         .sink { [weak self] signedInView in
             self?.present(view: signedInView)
         }
@@ -64,7 +69,7 @@ class SignedInViewController : NiblessViewController {
     
     func presentLocationGetter(){
         
-        self.dismiss(animated: true , completion: nil)
+        presentedViewController?.dismiss(animated: true , completion: nil)
         self.addChild(viewController: locationGetterViewController, belowView: signedInRootView)
         
     }
@@ -115,8 +120,8 @@ class SignedInViewModel :   PickupLocationDeterminedResponder   , PickupRequestR
         view = .locationGetter
     }
     
-    
-    @Published var view : SignedInView = .locationGetter
+   
+    @Published var view : SignedInView = .locationGetter 
     
     
     @objc
